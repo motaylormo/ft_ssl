@@ -3,7 +3,7 @@ Several deliberate features of cryptographic hash functions (for example, the fa
 
 So I created the **[notes&examples_hashing](https://github.com/motaylormo/ft_ssl/tree/master/notes%26examples_hashing)** folder: They're meticulous traces of what the values should be every step along the way for test cases, so you can compare that to the values _you_ have and figure out where you're going wrong.
 
-### Algorithms
+# Algorithms
 <table>
   <tr>
     <th text-align=right>Algorithm</th>
@@ -59,7 +59,7 @@ SHA-224 is a variant of SHA-256, and SHA-384 is a variant of SHA-512. They're ju
 1. The internal state has different initialization values.
 2. It the same size digest all the way through, but at the very end, these variants only take a portion of that for the checksum output. SHA-224 uses the first 224 of 256 bits. SHA-384 uses the first 284 of 512-bits. The rest are discarded.
 
-### Terminology
+# Terminology
 * The **message** is the input.
     * The **padded message** is the message with padding added to the end so that it is of a length that divides neatly into the block size.
     * The **block** is a portion of the padded message.
@@ -70,7 +70,7 @@ SHA-224 is a variant of SHA-256, and SHA-384 is a variant of SHA-512. They're ju
 * The **compression function** is the real guts of a cryptographic hashing algorithm. It runs once per block of message. It takes in the current internal state, and a set of words (ie the block). It spits out a set of numbers which are then added back into the internal state.
     * The **rounds** are the sets of transformations that happen each time the compression function is run.
 
-### Not really terminology, but naming conventions
+## Not really terminology, but naming conventions
 * The internal state is usually an array called `h[]`. ("h" for "hash".)
 * The working variables inside the compression function are typically lettered: `a`, `b`, `c`, `d`, ect.
 * `k[]` is an array of constants used within the compression function. (Possibly `k` for "key"? Or `k` as a phonetic version of "constant," since `c` is already a working variable?)
