@@ -8,11 +8,17 @@
     * The **key** is 64-bits, typically created by the PBKDF, from which the subkeys are derived.
     * The **IV (initialization vector)** is 64-bits, typically created by the PBKDF, which is used in CBC mode.
 * The **key schedule** derives the subkeys from the key.
-    * Input: 1 key, 64-bits
-    * Output: 16 subkeys, each 48-bits
+    * Input: 1 key (64-bits)
+    * Output: 16 subkeys (each 48-bits)
+* The encryption/decryption function is run on each 64-bit block of message.
+...1. Initial permutation
+...2. Split into left and right halves
+...3. Run the 16 rounds
+...4. Concatenate the halves back togeher
+...4. Final permutation
 * The **F-function (Feistel function)** is a major feature of a round in DES.
-    * Input: 32-bit half-block
-    * Output: 32-bit half-block
+    * Input: Half-block (32-bits)
+    * Output: Half-block (32-bits)
 
 # Tables
 DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
