@@ -1,15 +1,5 @@
 # DES encryption
 
-# Block cipher modes of operation
-This program has ECB and CBC. Other ones exist, but I did not include any others.
-
-**ECB (Electronic Codebook)** is the most straight-forward one.
-![Wikipedia's ECB diagram](https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg)
-
-**CBC (Cipher Block Chaining)** has each block XORed with the previous block. The blocks are all linked together, like a chain. For the very first block, it's XORed with the IV (initialization vector).
-![Wikipedia's CBC encryption diagram](https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg)
-![Wikipedia's CBC decryption diagram](https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg)
-
 # Tables
 DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
 
@@ -43,3 +33,15 @@ The **s-boxes (substitution boxes)** take 48 bits as input, and return 32 bits a
 * The **message** is the input.
     * The **block** is a 64-bit portion of the padded message.
 * **f function (Feistel function)** is the main part of a round in DES.
+
+# Block cipher modes of operation
+This program has ECB and CBC. Other ones exist, but I did not include any others.
+
+### ECB (Electronic Codebook)
+ECB is simplest one.
+![Wikipedia's ECB diagram](https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg)
+
+### CBC (Cipher Block Chaining)
+CBC has each block XORed with the previous block. The blocks are all linked together, like a chain. For the very first block, it's XORed with the IV (initialization vector).
+![Wikipedia's CBC encryption diagram](https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg)
+![Wikipedia's CBC decryption diagram](https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg)
