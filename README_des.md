@@ -1,6 +1,29 @@
 # DES encryption
 **DES** stands for **Data Encryption Standard**.
 
+# Tables
+DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
+
+### Permutations
+Permutations involve reordering bits in accordance to the table. For example if the first number of the table is 10, then the first bit of the output will be the 10th bit of the input.
+
+Keep in mind that these permutation tables _are not 0-indexed!_
+* **Initial permutation (IP)** is the first thing done to a block during encryption/decryption. It reorders 64 bits.
+* **Final permutation (IP<super>−1</super>)** is the last thing done to a block during encryption/decryption. It reorders 64 bits.
+* Within the feistel function:
+    * **Expansion (E)** expands it from 32-bits to 48-bits.
+    * **Permutation (P)**, also called **pbox permutation**, reorders 32 bits.
+* Within the key schedule:
+    * **Permuted choice 1 (PC-1)** is the first thing done to a key. It takes 64 bits as input, and returns 56 bits as output.
+    * **Permuted choice 2 (PC-2)** is the last thing done to a subkey. It takes 56 bits as input, and returns 48 bits as output.
+
+### Substitution boxes
+**Substitution boxes (S-boxes)** transform 48-bits into 32-bits.
+1. The 48 bits are split into 8 groups of 6 bits.
+2. In each sextet, the first and last bit are combined into a 2-bit number, and the middle 4 bits are another number.
+3. In the format of `[nth of the sextet][2-bit number][4-bit number value]`, look it up in the substitution boxes.
+4. Save that number from that index as 4-bits in your output 32.
+
 # Functions
 * The **PBKDF (password-based key derivation function)** in a function which derives a key and IV from the password.
     * The **password** is a string.
@@ -59,29 +82,6 @@ feistel (half block, subkey) {
      permutation
 }
 ```
-
-# Tables
-DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
-
-### Permutations
-Permutations involve reordering bits in accordance to the table. For example if the first number of the table is 10, then the first bit of the output will be the 10th bit of the input.
-
-Keep in mind that these permutation tables _are not 0-indexed!_
-* **Initial permutation** is the first thing done to a block during encryption/decryption. It reorders 64 bits.
-* **Final permutation** is the last thing done to a block during encryption/decryption. It reorders 64 bits.
-* Within the feistel function:
-    * **Expansion** expands it from 32-bits to 48-bits.
-    * **Permutation**, also called **pbox permutation**, reorders 32 bits.
-* Within the key schedule:
-    * **Permuted choice 1** is the first thing done to a key. It takes 64 bits as input, and returns 56 bits as output.
-    * **Permuted choice 2** is the last thing done to a subkey. It takes 56 bits as input, and returns 48 bits as output.
-
-### Substitution boxes
-The **s-boxes (substitution boxes)** take 48 bits as input, and return 32 bits as output.
-1. The 48 bits are split into 8 groups of 6 bits.
-2. In each sextet, the first and last bit are combined into a 2-bit number, and the middle 4 bits are another number.
-3. In the format of `[nth of the sextet][2-bit number][4-bit number value]`, look it up in the substitution boxes.
-4. Save that number from that index as 4-bits in your output 32.
 
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
