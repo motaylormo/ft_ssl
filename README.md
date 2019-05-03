@@ -8,7 +8,7 @@ Several deliberate features of cryptographic hash functions (for example, the fa
 
 So I created the **[notes&examples_hashing](https://github.com/motaylormo/ft_ssl/tree/master/notes%26examples_hashing)** folder: They're meticulous traces of what the values should be every step along the way for test cases, so you can compare that to the values _you_ have and figure out where you're going wrong.
 
-## Algorithms
+### Algorithms
 <table>
   <tr>
     <th text-align=right>Algorithm</th>
@@ -64,11 +64,11 @@ SHA-224 is a variant of SHA-256, and SHA-384 is a variant of SHA-512. They're ju
 1. The internal state has different initialization values.
 2. It the same size digest all the way through, but at the very end, these variants only take a portion of that for the checksum output. SHA-224 uses the first 224 of 256 bits. SHA-384 uses the first 284 of 512-bits. The rest are discarded.
 
-## Terminology
-* The **message** is the input
+### Terminology
+* The **message** is the input.
     * The **padded message** is the message with padding added to the end so that it is of a length that divides neatly into the block size.
     * The **block** is a portion of the padded message.
-    * The **words** are the block, sometimes after undergoing a transformation. This is the form of the block used by the compression function.
+    * The **words** are the block, usually after undergoing a transformation. Typically the first 16 words are just the block, and the rest are derived from those first 16. This is the form of the block used by the compression function.
 * The **digest** is the bitfield that is transformed throughout the algorithm. Because it's ever-changing, it's a somewhat vague term. Also sometimes called the **hash**.
     * The **internal state** is the part that is initialized at the beginning, and then added to after each compression of a data block.
     * The **checksum** is the output; the final internal state, converted to hexadecimal.
@@ -77,8 +77,22 @@ SHA-224 is a variant of SHA-256, and SHA-384 is a variant of SHA-512. They're ju
 
 ### Not really terminology, but naming conventions
 * The internal state is usually an array called `h[]`. ("h" for "hash".)
-* The working variables inside the compression function are typically lettered: `a`, `b`, `c`, `d`, `e`, `f`, `g`, `h`, ect.
-* `k[]` is an array of constants used within the compression function. (Possibly `k` for "key"?)
+* The working variables inside the compression function are typically lettered: `a`, `b`, `c`, `d`, ect.
+* `k[]` is an array of constants used within the compression function. (Possibly `k` for "key"? Or `k` as a phonetic version of "constant," since `c` is already a working variable?)
 * The words are sometimes seen called `w[]` and sometimes `m[]`. (`m` for "message," but since they've been transformed by this point, I think `w` for "words" is a clearer name.)
 
 # DES encryption
+### Terminology
+* **des** stands for **Data Encryption Standard**.
+* **pbkdf (password-based key derivation function** in a function which turns the password into a key and iv.
+    * The **password** is a string
+    * The **salt** is 64-bits, typically randomly generated, which are concatenated onto the end of the password.
+    * The **key** is 64-bits, typically created by the pbkdf, from which the subkeys are derived.
+    * The **iv (initialization vector)** is 64-bits, typically created by the pbkdf, which is used in CBC mode.
+* The **message** is the input.
+    * The **block** is a 64-bit portion of the padded message.
+* Block cipher modes of operation:
+    * **ecb (Electronic Codebook)** is the most straight-forward one.
+![Wikipedia's ECB diagram](https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg)
+    * **cbc (Cipher Block Chaining)**
+* **f function (Feistel function)** is the main part of a round in DES. 
