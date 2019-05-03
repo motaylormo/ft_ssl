@@ -1,4 +1,18 @@
 # DES encryption
+**DES** stands for **Data Encryption Standard**.
+
+# Functions
+* The **PBKDF (password-based key derivation function** in a function which derives a key and IV from the password.
+    * The **password** is a string.
+    * The **salt** is 64-bits, typically randomly generated, which are concatenated onto the end of the password.
+    * The **key** is 64-bits, typically created by the PBKDF, from which the subkeys are derived.
+    * The **IV (initialization vector)** is 64-bits, typically created by the PBKDF, which is used in CBC mode.
+* The **key schedule** derives the subkeys from the key.
+    * Input: 1 key, 64-bits
+    * Output: 16 subkeys, each 48-bits
+* The **F-function (Feistel function)** is a major feature of a round in DES.
+    * Input: 32-bit half-block
+    * Output: 32-bit half-block
 
 # Tables
 DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
@@ -22,17 +36,6 @@ The **s-boxes (substitution boxes)** take 48 bits as input, and return 32 bits a
 2. In each sextet, the first and last bit are combined into a 2-bit number, and the middle 4 bits are another number.
 3. In the format of `[nth of the sextet][2-bit number][4-bit number value]`, look it up in the substitution boxes.
 4. Save that number from that index as 4-bits in your output 32.
-
-# Terminology
-* **DES** stands for **Data Encryption Standard**.
-* **pbkdf (password-based key derivation function** in a function which turns the password into a key and iv.
-    * The **password** is a string
-    * The **salt** is 64-bits, typically randomly generated, which are concatenated onto the end of the password.
-    * The **key** is 64-bits, typically created by the pbkdf, from which the subkeys are derived.
-    * The **iv (initialization vector)** is 64-bits, typically created by the pbkdf, which is used in CBC mode.
-* The **message** is the input.
-    * The **block** is a 64-bit portion of the padded message.
-* **f function (Feistel function)** is the main part of a round in DES.
 
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
