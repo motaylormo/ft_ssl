@@ -36,8 +36,8 @@ Keep in mind that these permutation tables _are not 0-indexed!_
 * The encryption/decryption function is run on each 64-bit block of message.
 * The **F-function (Feistel function)** is a major feature of a round in DES, and is run on a half-block (32-bits)
 
-# Pseudocode
-* PBKDF
+# Pseudocode & Diagrams
+### PBKDF
 ```
 pbkdf (password) {
    generate salt
@@ -47,7 +47,7 @@ pbkdf (password) {
    iv = right
 }
 ```
-* Key schedule
+### Key schedule
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/DES-key-schedule.png" width="300px" />
 
 ```
@@ -61,7 +61,7 @@ key schedule (key) {
      }
 }
 ```
-* Encryption/decryption
+### Encryption/decryption
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/DES-main-network.png/500px-DES-main-network.png" width="300px" />
 
 ```
@@ -77,7 +77,7 @@ encryption/decryption (block, subkeys[16]) {
      final permutation
 }
 ```
-* Feistel function
+### Feistel function
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="300px" />
 
 ```
