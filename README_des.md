@@ -74,7 +74,9 @@ encryption/decryption (block, subkeys[16]) {
 }
 ```
 * Feistel function
-![Wikipedia's feistel diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png)
+<table>
+  <tr>
+    <th>
 ```
 feistel (half block, subkey) {
      expansion
@@ -83,6 +85,11 @@ feistel (half block, subkey) {
      permutation
 }
 ```
+    </th>
+    <th>![Wikipedia's feistel diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png)</th>
+  </tr>
+</table>
+
 
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
