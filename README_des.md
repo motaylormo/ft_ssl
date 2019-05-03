@@ -69,9 +69,9 @@ encryption/decryption (block, subkeys[16]) {
      initial permutation
      split into left and right halves
      for 16 rounds {
-          xor sum = left ^ feistel(right, subkey[round])
+          tmp = left ^ feistel(right, subkey[round])
           left = right
-          right = xor sum
+          right = tmp
      }
      concatenate right + left half
      final permutation
