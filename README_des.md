@@ -2,7 +2,7 @@
 **DES** stands for **Data Encryption Standard**.
 
 # Functions
-* The **PBKDF (password-based key derivation function** in a function which derives a key and IV from the password.
+* The **PBKDF (password-based key derivation function)** in a function which derives a key and IV from the password.
     * The **password** is a string.
     * The **salt** is 64-bits, typically randomly generated, which are concatenated onto the end of the password.
     * The **key** is 64-bits, typically created by the PBKDF, from which the subkeys are derived.
@@ -11,14 +11,54 @@
     * Input: 1 key (64-bits)
     * Output: 16 subkeys (each 48-bits)
 * The encryption/decryption function is run on each 64-bit block of message.
-...1. Initial permutation
-...2. Split into left and right halves
-...3. Run the 16 rounds
-...4. Concatenate the halves back togeher
-...4. Final permutation
-* The **F-function (Feistel function)** is a major feature of a round in DES.
-    * Input: Half-block (32-bits)
-    * Output: Half-block (32-bits)
+* The **F-function (Feistel function)** is a major feature of a round in DES, and is run on a half-block (32-bits)
+
+# Pseudocode
+* PBKDF
+```
+pbkdf (password) {
+   generate salt
+   md5(concatenate password + salt)
+   split hash into left and right halves
+   key = left
+   iv = right
+}
+```
+* Key schedule
+```
+key schedule (key) {
+     Permuted choice 1
+     split into left and right halves
+     for 16 rounds {
+          left-rotate both halves by the number specified in rotation table
+          concatenate left + right half
+          subkey[round] = permuted choice 2
+     }
+}
+```
+* Encryption/decryption
+```
+encryption/decryption (block, subkeys) {
+     initial permutation
+     split into left and right halves
+     for 16 rounds {
+          xor sum = left ^ feistel(right, subkey[round])
+          left = right
+          right = xor sum
+     }
+     concatenate right + left half
+     final permutation
+}
+```
+* Feistel function
+```
+feistel (half block, subkey) {
+     expansion
+     expanded ^ subkey
+     substitution boxes
+     permutation
+}
+```
 
 # Tables
 DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
