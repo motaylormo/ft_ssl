@@ -48,6 +48,8 @@ pbkdf (password) {
 }
 ```
 * Key schedule
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/DES-key-schedule.png" width="300px" />
+
 ```
 key schedule (key) {
      Permuted choice 1
@@ -60,6 +62,8 @@ key schedule (key) {
 }
 ```
 * Encryption/decryption
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/DES-main-network.png/500px-DES-main-network.png" width="300px" />
+
 ```
 encryption/decryption (block, subkeys[16]) {
      initial permutation
@@ -74,7 +78,7 @@ encryption/decryption (block, subkeys[16]) {
 }
 ```
 * Feistel function
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="400px" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="300px" />
 
 ```
 feistel (half block, subkey) {
