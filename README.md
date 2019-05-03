@@ -94,8 +94,8 @@ SHA-224 is a variant of SHA-256, and SHA-384 is a variant of SHA-512. They're ju
 DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
 
 Permutations involve reordering bits in accordance to the table. For example if the first number of the table is 10, then the first bit of the output will be the 10th bit of the input.
-* **Initial permutation** is the first thing done to a block. It reorders 64 bits.
-* **Final permutation** is the last thing done to a block. It reorders 64 bits.
+* **Initial permutation** is the first thing done to a block during encryption/decryption. It reorders 64 bits.
+* **Final permutation** is the last thing done to a block during encryption/decryption. It reorders 64 bits.
 * Within the feistel function:
     * **Expansion** expands it from 32-bits to 48-bits.
     * **Permutation**, also called **pbox permutation**, reorders 32 bits.
@@ -104,6 +104,10 @@ Permutations involve reordering bits in accordance to the table. For example if 
     * **Permuted choice 2** is the last thing done to a subkey. It takes 56 bits as input, and returns 48 bits as output.
 
 The **s-boxes (substitution boxes)** take 48 bits as input, and return 32 bits as output.
+1. The 48 bits are split into 8 groups of 6 bits.
+2. In each sextet, the first and last bit are combined into a 2-bit number, and the middle 4 bits are another number.
+3. In the format of `[nth of the sextet][2-bit number][4-bit number value]`, look it up on the substitution boxes.
+4. Save that number as 4-bits in your output 32.
 
 ### Terminology
 * **des** stands for **Data Encryption Standard**.
