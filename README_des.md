@@ -74,7 +74,8 @@ encryption/decryption (block, subkeys[16]) {
 }
 ```
 * Feistel function
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="300px" float="right" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="400px" />
+
 ```
 feistel (half block, subkey) {
      expansion
