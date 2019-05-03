@@ -61,7 +61,7 @@ key schedule (key) {
 ```
 * Encryption/decryption
 ```
-encryption/decryption (block, subkeys) {
+encryption/decryption (block, subkeys[16]) {
      initial permutation
      split into left and right halves
      for 16 rounds {
@@ -74,6 +74,7 @@ encryption/decryption (block, subkeys) {
 }
 ```
 * Feistel function
+![Wikipedia's feistel diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png)
 ```
 feistel (half block, subkey) {
      expansion
