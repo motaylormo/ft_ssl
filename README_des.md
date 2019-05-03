@@ -86,7 +86,7 @@ feistel (half block, subkey) {
 }
 </pre>
     </th>
-    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" /></th>
+    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="200px" /></th>
   </tr>
 </table>
 
