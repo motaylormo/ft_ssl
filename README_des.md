@@ -77,14 +77,14 @@ encryption/decryption (block, subkeys[16]) {
 <table>
   <tr>
     <th>
-```
+<pre>
 feistel (half block, subkey) {
      expansion
      expanded ^ subkey
      substitution boxes
      permutation
 }
-```
+</pre>
     </th>
     <th>![Wikipedia's feistel diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png)</th>
   </tr>
