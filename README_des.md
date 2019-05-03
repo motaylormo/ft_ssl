@@ -74,21 +74,15 @@ encryption/decryption (block, subkeys[16]) {
 }
 ```
 * Feistel function
-<table>
-  <tr>
-    <th>
-<pre>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="300px" float="right" />
+```
 feistel (half block, subkey) {
      expansion
      expanded ^ subkey
      substitution boxes
      permutation
 }
-</pre>
-    </th>
-    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Data_Encription_Standard_Flow_Diagram.svg/500px-Data_Encription_Standard_Flow_Diagram.svg.png" width="200px" /></th>
-  </tr>
-</table>
+```
 
 
 # Block cipher modes of operation
