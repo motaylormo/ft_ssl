@@ -8,14 +8,15 @@ DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en
 Permutations involve reordering bits in accordance to the table. For example if the first number of the table is 10, then the first bit of the output will be the 10th bit of the input.
 
 Keep in mind that these permutation tables _are not 0-indexed!_
-* **Initial permutation (IP)** is the first thing done to a block during encryption/decryption. It reorders 64 bits.
-* **Final permutation (IP<super>−1</super>)** is the last thing done to a block during encryption/decryption. It reorders 64 bits.
-* Within the feistel function:
-    * **Expansion (E)** expands it from 32-bits to 48-bits.
-    * **Permutation (P)**, also called **pbox permutation**, reorders 32 bits.
-* Within the key schedule:
-    * **Permuted choice 1 (PC-1)** is the first thing done to a key. It takes 64 bits as input, and returns 56 bits as output.
-    * **Permuted choice 2 (PC-2)** is the last thing done to a subkey. It takes 56 bits as input, and returns 48 bits as output.
+
+Permutation | Input | Output |
+----------- | ----- | ------ |
+Initial permutation (IP) | 64 bits | 64 bits |
+Final permutation (IP<super>−1</super>) | 64 bits | 64 bits |
+Expansion (E)            | 32 bits | 48 bits |
+Permutation (P)          | 32 bits | 32 bits |
+Permuted choice 1 (PC-1) | 64 bits | 56 bits |
+Permuted choice 2 (PC-2) | 56 bits | 48 bits |
 
 ### Substitution boxes
 **Substitution boxes (S-boxes)** transform 48-bits into 32-bits.
