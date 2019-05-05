@@ -9,14 +9,14 @@ Permutations involve reordering bits in accordance to the table. For example if 
 
 Keep in mind that the permutation tables _are not 0-indexed!_
 
-Permutation | Input | Output |
------------ | ----- | ------ |
-Initial permutation (IP) | 64 bits | 64 bits |
-Final permutation (IP⁻¹) | 64 bits | 64 bits |
-Expansion (E)            | 32 bits | 48 bits |
-Permutation (P)          | 32 bits | 32 bits |
-Permuted choice 1 (PC-1) | 64 bits | 56 bits |
-Permuted choice 2 (PC-2) | 56 bits | 48 bits |
+| Permutation               | Input   | Output  |
+| ------------------------- | ------- | ------- |
+| Initial permutation (IP)  | 64 bits | 64 bits |
+| Final permutation (IP⁻¹)  | 64 bits | 64 bits |
+| Expansion permutation (E) | 32 bits | 48 bits |
+| P-box permutation (P)     | 32 bits | 32 bits |
+| Permuted choice 1 (PC-1)  | 64 bits | 56 bits |
+| Permuted choice 2 (PC-2)  | 56 bits | 48 bits |
 
 ### Substitution boxes
 **Substitution boxes (S-boxes)** transform 48-bits into 32-bits.
