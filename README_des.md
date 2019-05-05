@@ -56,12 +56,12 @@ Output (32-bits):
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
 
-### ECB (Electronic Codebook)
+## ECB (Electronic Codebook)
 ECB is simplest one.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg" alt="Wikipedia's ECB diagram" width="100%" max-width="700px">
 
-### CBC (Cipher Block Chaining)
+## CBC (Cipher Block Chaining)
 CBC has each block XORed with the previous block. The blocks are all linked together, like a chain. For the very first block, it's XORed with the IV (initialization vector).
 
 In both cases, it's XORed with the _un-encrypted_ block (aka the readable one).
