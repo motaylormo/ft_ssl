@@ -7,7 +7,7 @@ DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en
 ### Permutations
 Permutations involve reordering bits in accordance to the table. For example if the first number of the table is 10, then the first bit of the output will be the 10th bit of the input.
 
-Keep in mind that these permutation tables _are not 0-indexed!_
+Keep in mind that the permutation tables _are not 0-indexed!_
 
 Permutation | Input | Output |
 ----------- | ----- | ------ |
