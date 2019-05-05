@@ -53,22 +53,21 @@ Output (32-bits):
 * The encryption/decryption function is run on each 64-bit block of message.
 * The **F-function (Feistel function)** is a major feature of a round in DES, and is run on a half-block (32-bits)
 
-
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
 
 ### ECB (Electronic Codebook)
 ECB is simplest one.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg" alt="Wikipedia's ECB diagram" width="600">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg" alt="Wikipedia's ECB diagram" width="100%">
 
 ### CBC (Cipher Block Chaining)
 CBC has each block XORed with the previous block. The blocks are all linked together, like a chain. For the very first block, it's XORed with the IV (initialization vector).
 
-In both cases, it's XORed with the _un-encrypted_ version.
+In both cases, it's XORed with the _un-encrypted_ block (aka the readable one).
 * In encryption mode, this means the plaintext block (aka _before_ encryption)
 * In decryption mode, this means the decrypted block (aka _after_ decryption)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg" alt="Wikipedia's CBC encryption diagram" width="600">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg" alt="Wikipedia's CBC encryption diagram" width="100%">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg" alt="Wikipedia's CBC decryption diagram" width="600">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg" alt="Wikipedia's CBC decryption diagram" width="100%">
