@@ -4,7 +4,7 @@
 # Tables
 DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
 
-### Permutations
+## Permutations
 Permutations involve reordering bits in accordance to the table. For example if the first number of the table is 10, then the first bit of the output will be the 10th bit of the input.
 
 Keep in mind that the permutation tables _are not 0-indexed!_
@@ -18,16 +18,15 @@ Keep in mind that the permutation tables _are not 0-indexed!_
 | Permuted choice 1 (PC-1)  | 64 bits | 56 bits |
 | Permuted choice 2 (PC-2)  | 56 bits | 48 bits |
 
-### Substitution boxes
+## Substitution boxes
 **Substitution boxes (S-boxes)** transform 48-bits into 32-bits.
 1. The 48 bits are split into 8 groups of 6 bits.
 2. In each sextet, the first and last bit are combined into a 2-bit number, and the middle 4 bits are another number.
 3. In the format of `[nth of the sextet][2-bit number][4-bit number value]`, look it up in the substitution boxes.
 4. Save that number from that index as 4-bits in your output 32.
-```
-Input (48-bits):
-	011000 010001 011110 111010 100001 100110 010100 100111
-```
+
+### Example
+Input (48-bits): `011000 010001 011110 111010 100001 100110 010100 100111`
 
 | Sextet   | 2-bit and 4-bit         | S-box lookup       | S-box value |
 | -------- | ----------------------- | ------------------ | ----------- |
@@ -40,10 +39,7 @@ Input (48-bits):
 | `010100` | `00` = 0<br>`1010` = 10 | sbox[6][0][10] = 9 |  9 = `1001` |
 | `100111` | `11` = 3<br>`0011` = 3  | sbox[7][3][3] = 7  |  7 = `0111` |
 
-```
-Output (32-bits):
-	0101 1100 1000 0010 1011 0101 1001 0111
-```
+Output (32-bits): `0101 1100 1000 0010 1011 0101 1001 0111`
 
 # Functions
 * The **PBKDF (password-based key derivation function)** in a function which derives a key and IV from the password.
