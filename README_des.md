@@ -44,9 +44,9 @@ Output (32-bits):
 # Functions
 * The **PBKDF (password-based key derivation function)** in a function which derives a key and IV from the password.
     * The **password** is a string.
-    * The **salt** is 64-bits, typically randomly generated, which are concatenated onto the end of the password.
-    * The **key** is 64-bits, typically created by the PBKDF, from which the subkeys are derived.
-    * The **IV (initialization vector)** is 64-bits, typically created by the PBKDF, which is used in CBC mode.
+    * The **salt** is 64-bits which are concatenated onto the end of the password. Unless specified, it's randomly generated.
+    * The **key** is 64-bits from which the subkeys are derived. Unless specified, it's created by the PBKDF.
+    * The **IV (initialization vector)** is 64-bits which is used in CBC mode. Unless specified, it's created by the PBKDF.
 * The **key schedule** derives the subkeys from the key.
     * Input: 1 key (64-bits)
     * Output: 16 subkeys (each 48-bits)
@@ -56,12 +56,12 @@ Output (32-bits):
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
 
-## ECB (Electronic Codebook)
-ECB is simplest one.
+### ECB (Electronic Codebook)
+ECB is simplest one. It's simply encrypted/decrypted block by block.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/ECB_encryption.svg" alt="Wikipedia's ECB diagram" width="100%" max-width="700px">
 
-## CBC (Cipher Block Chaining)
+### CBC (Cipher Block Chaining)
 CBC has each block XORed with the previous block. The blocks are all linked together, like a chain. For the very first block, it's XORed with the IV (initialization vector).
 
 In both cases, it's XORed with the _un-encrypted_ block (aka the readable one).
