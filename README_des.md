@@ -26,9 +26,7 @@ Keep in mind that the permutation tables _are not 0-indexed!_
 4. Save that number from that index as 4-bits in your output 32.
 
 ### Example
-**Input (48-bits):**
-
-```011000 010001 011110 111010 100001 100110 010100 100111```
+**Input (48-bits):**<br>```011000 010001 011110 111010 100001 100110 010100 100111```
 
 | Sextet   | 2-bit and 4-bit         | S-box lookup       | S-box value |
 | -------- | ----------------------- | ------------------ | ----------- |
@@ -41,9 +39,7 @@ Keep in mind that the permutation tables _are not 0-indexed!_
 | `010100` | `00` = 0<br>`1010` = 10 | sbox[6][0][10] = 9 |  9 = `1001` |
 | `100111` | `11` = 3<br>`0011` = 3  | sbox[7][3][3] = 7  |  7 = `0111` |
 
-**Output (32-bits):**
-
-```0101 1100 1000 0010 1011 0101 1001 0111```
+**Output (32-bits):**<br>```0101 1100 1000 0010 1011 0101 1001 0111```
 
 # Functions
 * The **PBKDF (password-based key derivation function)** in a function which derives a key and IV from the password.
