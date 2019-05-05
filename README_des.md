@@ -26,7 +26,7 @@ Keep in mind that the permutation tables _are not 0-indexed!_
 4. Save that number from that index as 4-bits in your output 32.
 
 ### Example
-**Input (48-bits):**<br>```011000 010001 011110 111010 100001 100110 010100 100111```
+Input (48-bits):<br>```011000 010001 011110 111010 100001 100110 010100 100111```
 
 | Sextet   | 2-bit and 4-bit         | S-box lookup       | S-box value |
 | -------- | ----------------------- | ------------------ | ----------- |
@@ -39,7 +39,7 @@ Keep in mind that the permutation tables _are not 0-indexed!_
 | `010100` | `00` = 0<br>`1010` = 10 | sbox[6][0][10] = 9 |  9 = `1001` |
 | `100111` | `11` = 3<br>`0011` = 3  | sbox[7][3][3] = 7  |  7 = `0111` |
 
-**Output (32-bits):**<br>```0101 1100 1000 0010 1011 0101 1001 0111```
+Output (32-bits):<br>```0101 1100 1000 0010 1011 0101 1001 0111```
 
 # Functions
 * The **PBKDF (password-based key derivation function)** in a function which derives a key and IV from the password.
@@ -68,6 +68,6 @@ In both cases, it's XORed with the _un-encrypted_ block (aka the readable one).
 * In encryption mode, this means the plaintext block (aka _before_ encryption)
 * In decryption mode, this means the decrypted block (aka _after_ decryption)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg" alt="Wikipedia's CBC encryption diagram" width="100%" max-width="700px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg" alt="Wikipedia's CBC encryption diagram" width="700px" max-width="100%">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg" alt="Wikipedia's CBC decryption diagram" width="100%" max-width="700px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg" alt="Wikipedia's CBC decryption diagram" width="700px" max-width="100%">
