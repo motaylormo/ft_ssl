@@ -12,7 +12,7 @@ Keep in mind that these permutation tables _are not 0-indexed!_
 Permutation | Input | Output |
 ----------- | ----- | ------ |
 Initial permutation (IP) | 64 bits | 64 bits |
-Final permutation (IP<super>−1</super>) | 64 bits | 64 bits |
+Final permutation (IP⁻¹) | 64 bits | 64 bits |
 Expansion (E)            | 32 bits | 48 bits |
 Permutation (P)          | 32 bits | 32 bits |
 Permuted choice 1 (PC-1) | 64 bits | 56 bits |
