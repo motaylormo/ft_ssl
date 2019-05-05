@@ -65,6 +65,10 @@ ECB is simplest one.
 ### CBC (Cipher Block Chaining)
 CBC has each block XORed with the previous block. The blocks are all linked together, like a chain. For the very first block, it's XORed with the IV (initialization vector).
 
+In both cases, it's XORed with the _un-encrypted_ version.
+* In encryption mode, this means the plaintext block (aka _before_ encryption)
+* In decryption mode, this means the decrypted block (aka _after_ decryption)
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg" alt="Wikipedia's CBC encryption diagram" width="600">
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/CBC_decryption.svg" alt="Wikipedia's CBC decryption diagram" width="600">
