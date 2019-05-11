@@ -94,3 +94,17 @@ Run that through the final permutation:<br>
 ```
 fp = 3d792021251d3825
 ```
+
+## Blocks
+| Plaintext<br>(ascii) | Plaintext<br>(hex) | Encrypted<br>(ascii) | Encrypted<br>(hex) |
+| -------------------- | ------------------ | -------------------- | ------------------ |
+| `The hous` | `54686520686f7573`| `3d792021251d3825`| <pre>=y !%8%</pre>
+| `e stood ` | `652073746f6f6420`| `49c05eba625f10f4`| <pre>I�^�b_�</pre>
+| `on a sli` | `6f6e206120736c69`| `b1f4f82337449bd5`| <pre>���#7D��</pre>
+| `ght rise` | `6768742072697365`| `0a13581429c483bc`| <pre>
+X)ă�</pre>
+| ` just on` | `206a757374206f6e`| `1cfe4ef7f2f41f75`| <pre>�N���u</pre>
+| ` the edg` | `2074686520656467`| `ebdde1cb9e3ff54e`| <pre>���˞?�N</pre>
+| `e of the` | `65206f6620746865`| `ff793c54facc24f7`| <pre>�y<T��$�</pre>
+| ` village` | `2076696c6c616765`| `c53d6621021babb8`| <pre>�=f!�</pre>
+| `.` | `2e07070707070707`| `604b6f2dc7c08a06`| <pre>`Ko-���</pre>
