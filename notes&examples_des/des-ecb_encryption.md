@@ -1,7 +1,8 @@
 message = "The house stood on a slight rise just on the edge of the village."
 key = 3e9b8a463a57720d
 
-##Blocks
+## Blocks
+
 | Ascii | Binary | Hex |
 | ----- | ------ | --- |
 | `"The hous"` | `0101010001101000011001010010000001101000011011110111010101110011` | `54686520686f7573`
