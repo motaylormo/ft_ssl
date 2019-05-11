@@ -20,14 +20,20 @@ In the last block, because there is only 1 byte of message left, you pad the res
 
 ## Encryption (Block 0)
 ### Beginning
-We start with our block:<br>```block = 0101010001101000011001010010000001101000011011110111010101110011 (54686520686f7573)```
+We start with our block:<br>
+```
+block = 54686520686f7573
+```
 
-Run that through the initial permutation:<br>```ip = 1111011111000001011001011110010000000000111111100011001010100000 (f7c165e400fe32a0)```
+Run that through the initial permutation:<br>
+```
+ip = f7c165e400fe32a0
+```
 
 Split that into 2 halves:<br>
 ```
- left = 11110111110000010110010111100100 (f7c165e4)
-right = 00000000111111100011001010100000 (00fe32a0)
+ left = f7c165e4
+right = 00fe32a0
 ```
 
 ### Rounds
@@ -52,12 +58,39 @@ right = 00000000111111100011001010100000 (00fe32a0)
 | 14 | `e85fc05d` | `70b49ad8` | `a9265871e5f7` | `e880a35d` | `00df6300`
 | 15 | `70b49ad8` | `00df6300` | `31509ef6fb8d` | `72d72b63` | `0263b1bb`
 
+Inside `feistel(right, subkey)` for each round. "Half block" and "subkey" are the input. "P-box" is the output.
+
+|    | half block | subkey         | expanded block | e XOR subkey   | s-boxes    | p-box
+| -- | ---------- | -------------- | -------------- | -------------- | ---------- | ----------
+| 0  | `00fe32a0` | `445e882fac8f` | `0017fc1a5500` | `44497435f98f` | `a8d3d8d4` | `b7dd0321`
+| 1  | `401c66c5` | `3401e03237fb` | `a000f830d60a` | `94011802e1f1` | `8f9b237f` | `cefa6df0`
+| 2  | `ce045f50` | `924835ffb923` | `65c0082feaa1` | `f7883dd05382` | `69d2c4d2` | `075fc309`
+| 3  | `4743a5cc` | `8d2314666f7a` | `20ea07d0be58` | `adc913b6d122` | `95472f2b` | `98e37c9a`
+| 4  | `56e723ca` | `0616ad7db95e` | `2ad70e907e54` | `2cc1a3edc70a` | `23ef456f` | `c8577f6c`
+| 5  | `8f14daa0` | `db1060e5d4fa` | `45e8a96f5501` | `9ef8c98a81fb` | `22a62275` | `42701fa4`
+| 6  | `14973c6e` | `88cae84dbe6f` | `0a94ae9f835c` | `825e46d23d33` | `4ab3c36c` | `cd7ca524`
+| 7  | `42687f84` | `90730ebedcfc` | `2043503ffc08` | `b0305e8120f4` | `2ddf4d0a` | `9c4f7358`
+| 8  | `88d84f36` | `360e86db7c2e` | `4516f025e9ad` | `731876fe9583` | `0b1e397f` | `7e5a7ce0`
+| 9  | `3c320364` | `7a3010ec7bb8` | `1f81a4006b08` | `65b1b4ec10b0` | `99e34ab0` | `92ed4507`
+| 10 | `1a350a31` | `0c847cb17a7f` | `8f41aa8541a2` | `83c5d6343bdd` | `42e5df79` | `fb35bd0c`
+| 11 | `c707be68` | `c6401ef79ab2` | `60e80fdfc351` | `a6a8112859e3` | `44d4a481` | `05019999`
+| 12 | `1f3493a8` | `2e8b20952f7f` | `0fe9a94a7d50` | `216289df522f` | `2d3691fd` | `2f587e35`
+| 13 | `e85fc05d` | `8a382b3fbad4` | `f502ffe002fb` | `7f3ad4dfb82f` | `8698901d` | `6f800970`
+| 14 | `70b49ad8` | `a9265871e5f7` | `3a15a94f56f0` | `9333f13eb307` | `e6a91588` | `e880a35d`
+| 15 | `00df6300` | `31509ef6fb8d` | `0016feb06800` | `31466046938d` | `b2ca59d7` | `72d72b63`
+
 ### End
 The halves from the final round:<br>
 ```
- left = 00000000110111110110001100000000 (00df6300)
-right = 00000010011000111011000110111011 (0263b1bb)
+ left = 00df6300
+right = 0263b1bb
 ```
-Concatenate those together backwards (right + left):<br>```catted = 0000001001100011101100011011101100000000110111110110001100000000 (0263b1bb00df6300)```
+Concatenate those together backwards (right + left):<br>
+```
+catted = 0263b1bb00df6300
+```
 
-Run that through the final permutation:<br>```fp = 0011110101111001001000000010000100100101000111010011100000100101 (3d792021251d3825)```
+Run that through the final permutation:<br>
+```
+fp = 3d792021251d3825
+```
