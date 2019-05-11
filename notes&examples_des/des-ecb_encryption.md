@@ -1,8 +1,9 @@
+```
 message = "The house stood on a slight rise just on the edge of the village."
 key = 3e9b8a463a57720d
+```
 
 ## Blocks
-
 | Ascii | Binary | Hex |
 | ----- | ------ | --- |
 | `"The hous"` | `01010100 01101000 01100101 00100000`<br>`01101000 01101111 01110101 01110011` | `54686520686f7573`
@@ -16,3 +17,47 @@ key = 3e9b8a463a57720d
 | `"."` | `00101110 00000111 00000111 00000111`<br>`00000111 00000111 00000111 00000111` | `2e07070707070707`
 
 In the last block, because there is only 1 byte of message left, you pad the rest of the bytes in the block with the number of bytes which are empty (in this case, 7).
+
+## Encryption (Block 0)
+### Beginning
+We start with our block:<br>```block = 0101010001101000011001010010000001101000011011110111010101110011 (54686520686f7573)```
+
+Run that through the initial permutation:<br>```ip = 1111011111000001011001011110010000000000111111100011001010100000 (f7c165e400fe32a0)```
+
+Split that into 2 halves:<br>
+```
+ left = 11110111110000010110010111100100 (f7c165e4)
+right = 00000000111111100011001010100000 (00fe32a0)
+```
+
+### Rounds
+"Left" and "right" are left and right's _input_ values, not output values. Right's output value is left XOR feistel, and left's output value is the old right.
+
+|    | left       | right      | subkey         | feistel    | left XOR feistel
+| -- | ---------- | ---------- | -------------- | ---------- | ----------------
+| 0  | `f7c165e4` | `00fe32a0` | `445e882fac8f` | `b7dd0321` | `401c66c5`
+| 1  | `00fe32a0` | `401c66c5` | `3401e03237fb` | `cefa6df0` | `ce045f50`
+| 2  | `401c66c5` | `ce045f50` | `924835ffb923` | `075fc309` | `4743a5cc`
+| 3  | `ce045f50` | `4743a5cc` | `8d2314666f7a` | `98e37c9a` | `56e723ca`
+| 4  | `4743a5cc` | `56e723ca` | `0616ad7db95e` | `c8577f6c` | `8f14daa0`
+| 5  | `56e723ca` | `8f14daa0` | `db1060e5d4fa` | `42701fa4` | `14973c6e`
+| 6  | `8f14daa0` | `14973c6e` | `88cae84dbe6f` | `cd7ca524` | `42687f84`
+| 7  | `14973c6e` | `42687f84` | `90730ebedcfc` | `9c4f7358` | `88d84f36`
+| 8  | `42687f84` | `88d84f36` | `360e86db7c2e` | `7e5a7ce0` | `3c320364`
+| 9  | `88d84f36` | `3c320364` | `7a3010ec7bb8` | `92ed4507` | `1a350a31`
+| 10 | `3c320364` | `1a350a31` | `0c847cb17a7f` | `fb35bd0c` | `c707be68`
+| 11 | `1a350a31` | `c707be68` | `c6401ef79ab2` | `05019999` | `1f3493a8`
+| 12 | `c707be68` | `1f3493a8` | `2e8b20952f7f` | `2f587e35` | `e85fc05d`
+| 13 | `1f3493a8` | `e85fc05d` | `8a382b3fbad4` | `6f800970` | `70b49ad8`
+| 14 | `e85fc05d` | `70b49ad8` | `a9265871e5f7` | `e880a35d` | `00df6300`
+| 15 | `70b49ad8` | `00df6300` | `31509ef6fb8d` | `72d72b63` | `0263b1bb`
+
+### End
+The halves from the final round:<br>
+```
+ left = 00000000110111110110001100000000 (00df6300)
+right = 00000010011000111011000110111011 (0263b1bb)
+```
+Concatenate those together backwards (right + left):<br>```catted = 0000001001100011101100011011101100000000110111110110001100000000 (0263b1bb00df6300)```
+
+Run that through the final permutation:<br>```fp = 0011110101111001001000000010000100100101000111010011100000100101 (3d792021251d3825)```
