@@ -3,4 +3,4 @@ Recoding parts of OpenSSL. Cryptographic hashing algorithms MD5, SHA-256, SHA-22
 
 This is my version of the **[42](https://www.42.us.org/)** cadet projects `ft_ssl_md5` and `ft_ssl_des`.
 
-See the **[hashing README](https://github.com/motaylormo/ft_ssl/blob/master/README_hashing.md)** and **[des README](https://github.com/motaylormo/ft_ssl/blob/master/README_des.md)** for the documentation, because they're both rather lengthy.
+See the **[hashing README](./README_hashing.md)** and **[des README](./README_des.md)** for the documentation, because they're both rather lengthy.
