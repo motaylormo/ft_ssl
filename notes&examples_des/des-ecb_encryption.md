@@ -3,7 +3,7 @@ message = "The house stood on a slight rise just on the edge of the village."
 key = 3e9b8a463a57720d
 ```
 
-## Blocks
+# Blocks
 | Ascii | Binary | Hex |
 | ----- | ------ | --- |
 | `"The hous"` | `01010100 01101000 01100101 00100000`<br>`01101000 01101111 01110101 01110011` | `54686520686f7573`
@@ -17,6 +17,30 @@ key = 3e9b8a463a57720d
 | `"."` | `00101110 00000111 00000111 00000111`<br>`00000111 00000111 00000111 00000111` | `2e07070707070707`
 
 In the last block, because there is only 1 byte of message left, you pad the rest of the bytes in the block with the number of bytes which are empty (in this case, 7).
+
+**Plaintext:**<br>
+```
+The house stood on a slight rise just on the edge of the village.
+```
+
+| Plaintext<br>(hex) | Encrypted<br>(hex) |
+| ------------------ | ------------------ |
+| `54686520686f7573`| `3d792021251d3825`
+| `652073746f6f6420`| `49c05eba625f10f4`
+| `6f6e206120736c69`| `b1f4f82337449bd5`
+| `6768742072697365`| `0a13581429c483bc`
+| `206a757374206f6e`| `1cfe4ef7f2f41f75`
+| `2074686520656467`| `ebdde1cb9e3ff54e`
+| `65206f6620746865`| `ff793c54facc24f7`
+| `2076696c6c616765`| `c53d6621021babb8`
+| `2e07070707070707`| `604b6f2dc7c08a06`
+
+**Encrypted:**<br>
+```
+=y !%8%I�^�b_���#7D��
+X)ă��N���u���˞?�N�y<T��$��=f!�`Ko-���
+```
+
 
 ## Encryption (Block 0)
 ### Beginning
@@ -93,28 +117,4 @@ catted = 0263b1bb00df6300
 Run that through the final permutation:<br>
 ```
 fp = 3d792021251d3825
-```
-
-## Blocks
-Plaintext:<br>
-```
-The house stood on a slight rise just on the edge of the village.
-```
-
-| Plaintext<br>(ascii) | Plaintext<br>(hex) | Encrypted<br>(hex) |
-| -------------------- | ------------------ | ------------------ |
-| `The hous` | `54686520686f7573`| `3d792021251d3825`
-| `e stood ` | `652073746f6f6420`| `49c05eba625f10f4`
-| `on a sli` | `6f6e206120736c69`| `b1f4f82337449bd5`
-| `ght rise` | `6768742072697365`| `0a13581429c483bc`
-| ` just on` | `206a757374206f6e`| `1cfe4ef7f2f41f75`
-| ` the edg` | `2074686520656467`| `ebdde1cb9e3ff54e`
-| `e of the` | `65206f6620746865`| `ff793c54facc24f7`
-| ` village` | `2076696c6c616765`| `c53d6621021babb8`
-| `.` | `2e07070707070707`| `604b6f2dc7c08a06`
-
-Encrypted:<br>
-```
-=y !%8%I�^�b_���#7D��
-X)ă��N���u���˞?�N�y<T��$��=f!�`Ko-���
 ```
