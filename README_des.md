@@ -1,5 +1,14 @@
-# DES encryption
-**DES** stands for **Data Encryption Standard**.
+# Terminology
+* **DES (Data Encryption Standard):** This encryption algorithm.
+* **PBKDF (password-based key derivation function):** Derives a key and IV from the password.
+    * The **password** is a string.
+    * The **salt** is 64-bits which are concatenated onto the end of the password. Unless specified, it's randomly generated.
+    * The **key** is 64-bits from which the subkeys are derived. Unless specified, it's created by the PBKDF.
+    * The **IV (initialization vector)** is 64-bits which is used in CBC mode. Unless specified, it's created by the PBKDF.
+* **Key schedule:** Derives the subkeys from the key.
+    * Input: 1 key (64-bits)
+    * Output: 16 subkeys (each 48-bits)
+* **F-function (Feistel function):** A major feature of a round in DES, and is run on a half-block (32-bits).
 
 # Tables
 DES uses a _bunch_ of tables. They are detalied on wikipedia **[here](https://en.wikipedia.org/wiki/DES_supplementary_material)**.
@@ -42,18 +51,6 @@ Input (48-bits):<br>```011000 010001 011110 111010 100001 100110 010100 100111``
 
 Output (32-bits):<br>```0101 1100 1000 0010 1011 0101 1001 0111```
 </details>
-
-# Functions
-* The **PBKDF (password-based key derivation function)** in a function which derives a key and IV from the password.
-    * The **password** is a string.
-    * The **salt** is 64-bits which are concatenated onto the end of the password. Unless specified, it's randomly generated.
-    * The **key** is 64-bits from which the subkeys are derived. Unless specified, it's created by the PBKDF.
-    * The **IV (initialization vector)** is 64-bits which is used in CBC mode. Unless specified, it's created by the PBKDF.
-* The **key schedule** derives the subkeys from the key.
-    * Input: 1 key (64-bits)
-    * Output: 16 subkeys (each 48-bits)
-* The encryption/decryption function is run on each 64-bit block of message.
-* The **F-function (Feistel function)** is a major feature of a round in DES, and is run on a half-block (32-bits)
 
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
