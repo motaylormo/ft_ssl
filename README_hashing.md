@@ -1,5 +1,3 @@
-# Cryptographic hashing
-
 # Algorithms
 Mine has the following algorithms.
 <table>
