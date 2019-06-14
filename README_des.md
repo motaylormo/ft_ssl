@@ -25,7 +25,7 @@ Keep in mind that the permutation tables _are not 0-indexed!_
 3. In the format of `[nth of the sextet][2-bit number][4-bit number value]`, look it up in the substitution boxes.
 4. Save that number from that index as 4-bits in your output 32.
 
-<details><summary><h4>Example</h4></summary>
+<details><summary><b><big>Example</big></b></summary>
 
 Input (48-bits):<br>```011000 010001 011110 111010 100001 100110 010100 100111```
 
