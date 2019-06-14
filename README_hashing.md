@@ -19,7 +19,7 @@ So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder
     <td>512 bits</td>
     <td>16 (32-bits each)</td>
     <td>64</td>
-    <td>32 chars<br>(128 bits / 4)</td>
+    <td>32 chars<br>(128 / 4)</td>
   </tr>
   <tr>
     <td>SHA-256</td>
@@ -27,11 +27,11 @@ So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder
     <td rowspan=2>512 bits</td>
     <td rowspan=2>64 (32-bits each)</td>
     <td rowspan=2>64</td>
-    <td>64 chars<br>(256 bits / 4)</td>
+    <td>64 chars<br>(256 / 4)</td>
   </tr>
   <tr>
     <td>SHA-224</td>
-    <td>56 chars<br>(224 bits) / 4)</td>
+    <td>56 chars<br>(224 / 4)</td>
   </tr>
   <tr>
     <td>SHA-1</td>
@@ -39,7 +39,7 @@ So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder
     <td>512 bits</td>
     <td>80 (32-bits each)</td>
     <td>80</td>
-    <td>40 chars<br>(160 bits / 4)</td>
+    <td>40 chars<br>(160 / 4)</td>
   </tr>
   <tr>
     <td>SHA-512</td>
@@ -47,11 +47,11 @@ So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder
     <td rowspan=2>1024 bits</td>
     <td rowspan=2>80 (64-bits each)</td>
     <td rowspan=2>80</td>
-    <td>128 chars<br>(512 bits / 4)</td>
+    <td>128 chars<br>(512 / 4)</td>
   </tr>
   <tr>
     <td>SHA-384</td>
-    <td>96 chars<br>(384 bits / 4)</td>
+    <td>96 chars<br>(384 / 4)</td>
   </tr>
 </table>
 
