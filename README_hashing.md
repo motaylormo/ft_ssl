@@ -4,6 +4,7 @@ Several deliberate features of cryptographic hash functions (for example, the fa
 So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder: They're meticulous traces of what the values should be every step along the way for test cases, so you can compare that to the values _you_ have and figure out where you're going wrong.
 
 # Algorithms
+Mine has the following algorithms.
 <table>
   <tr>
     <th text-align=right>Algorithm</th>
