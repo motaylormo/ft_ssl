@@ -66,7 +66,7 @@ SHA-224 is a variant of SHA-256, and SHA-384 is a variant of SHA-512. They're ju
 * The **compression function** is the real guts of a cryptographic hashing algorithm. It runs once per block of message. It takes in the current internal state, and a set of words (ie the block). It spits out a set of numbers which are then added back into the internal state.
     * The **rounds** are the sets of transformations that happen each time the compression function is run.
 
-## Not really terminology, but naming conventions
+### Not really terminology, but naming conventions
 * The internal state is usually an array called `h[]`. ("h" for "hash".)
 * The working variables inside the compression function are typically lettered: `a`, `b`, `c`, `d`, ect.
 * `k[]` is an array of constants used within the compression function. (Possibly `k` for "key"? Or `k` as a phonetic version of "constant," since `c` is already a working variable?)
