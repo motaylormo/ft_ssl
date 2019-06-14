@@ -52,6 +52,9 @@ Input (48-bits):<br>```011000 010001 011110 111010 100001 100110 010100 100111``
 Output (32-bits):<br>```0101 1100 1000 0010 1011 0101 1001 0111```
 </details>
 
+### Bit rotation table
+Specifies how many bits left to rotate the bitfields during each key schedule round.
+
 # Block cipher modes of operation
 This program has ECB and CBC. Other ones exist, but I did not include any others.
 
