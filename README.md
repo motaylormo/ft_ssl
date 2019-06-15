@@ -22,3 +22,6 @@ So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder
 **[notes&examples_des](./notes%26examples_des)** is the same idea for DES, but to a lesser extent.
 
 **[This](https://wiki.openssl.org/index.php/Enc)** is a really good list of all the flags for real OpenSSL.
+
+# Usage
+Real OpenSSL's usage prints out its options in the format of 4 columns, each 18 chracters wide. This remains constant, regardless of the window's width; it does not resize to fit.
