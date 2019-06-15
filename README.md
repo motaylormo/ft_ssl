@@ -25,3 +25,5 @@ So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder
 
 # Usage
 Real OpenSSL's usage prints out its options in the format of 4 columns, each 18 chracters wide. This remains constant, regardless of the window's width; it does not resize to fit.
+
+I did the same, but I listed the flags there as well.
