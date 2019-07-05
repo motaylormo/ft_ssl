@@ -1,6 +1,6 @@
 message: `"abc"`
 
-## Message padded
+## Padded message
 Message transformed into padded binary<br>(message + 1 + 0s + message bits len in *big* endian)
 ```
 01100001 01100010 01100011 10000000  00000000 00000000 00000000 00000000
