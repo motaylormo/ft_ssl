@@ -1,7 +1,8 @@
-message: "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"
+message: `"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"`
 
-message transformed into padded binary:
-  (message + 1 + 0s + message bits len in big endian)
+## Padded message
+Message transformed into padded binary<br>(message + 1 + 0s + message bits len in *big* endian)
+```
 01100001 01100010 01100011 01100100  01100010 01100011 01100100 01100101
 01100011 01100100 01100101 01100110  01100100 01100101 01100110 01100111
 01100101 01100110 01100111 01101000  01100110 01100111 01101000 01101001
@@ -19,8 +20,10 @@ message transformed into padded binary:
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000001 11000000
+```
 
-hash intialized:
+## Hash intialized
+```
 h[0] = 6a09e667
 h[1] = bb67ae85
 h[2] = 3c6ef372
@@ -30,9 +33,11 @@ h[5] = 9b05688c
 h[6] = 1f83d9ab
 h[7] = 5be0cd19
 
-512-bit block of the binary, transformed into 64 32-bit "words":
-  (The first 16 words are just 32-bit sections of the block, flipped to little endian.
-   The rest are produced by running those first 16 through a fuction.)
+```
+
+## Words (first block)
+512-bit block of the binary, transformed into 64, 32-bit "words". The first 16 words are just 32-bit sections of the block, flipped to little endian. The rest are produced by running those first 16 through a fuction.
+```
 W[ 0] = 61626364    W[16] = eb8012ad    W[32] = a835e16a    W[48] = 0b706583
 W[ 1] = 62636465    W[17] = a7c3ae92    W[33] = 1dff4429    W[49] = 179312ca
 W[ 2] = 63646566    W[18] = 76e93ba2    W[34] = d6e15959    W[50] = 503054e9
@@ -49,8 +54,11 @@ W[12] = 6d6e6f70    W[28] = 6accc0ec    W[44] = 71f134d0    W[60] = 4001adf1
 W[13] = 6e6f7071    W[29] = f54cb098    W[45] = 0f94f463    W[61] = 1a3dd097
 W[14] = 80000000    W[30] = 2af1b2da    W[46] = 7e49dc63    W[62] = a9df6f62
 W[15] = 00000000    W[31] = ee59c4c9    W[47] = 6f65c997    W[63] = 6aa60a39
+```
 
-hex values for a b c d e f g h after each pass in the compression function:
+## Compression function (first block)
+Hex values for the working variables after each pass in the compression function:
+```
         (a)         (b)         (c)         (d)         (e)         (f)         (g)         (h)
 init) 6a09e667    bb67ae85    3c6ef372    a54ff53a    510e527f    9b05688c    1f83d9ab    5be0cd19
    0) 5d6aebb1    6a09e667    bb67ae85    3c6ef372    fa2a4606    510e527f    9b05688c    1f83d9ab
@@ -117,8 +125,10 @@ init) 6a09e667    bb67ae85    3c6ef372    a54ff53a    510e527f    9b05688c    1f
   61) f6f443f8    bcfce922    e18f259a    921fccb6    acc75916    962d8621    51e15869    43d8a034
   62) 86126910    f6f443f8    bcfce922    e18f259a    2fc08f85    acc75916    962d8621    51e15869
   63) 1bdc6f6f    86126910    f6f443f8    bcfce922    25d2430a    2fc08f85    acc75916    962d8621
+```
 
 Add those values back to the hash:
+```
 H[0] + a = 6a09e667 + 1bdc6f6f = 85e655d6
 H[1] + b = bb67ae85 + 86126910 = 417a1795
 H[2] + c = 3c6ef372 + f6f443f8 = 3363376a
@@ -127,8 +137,11 @@ H[4] + e = 510e527f + 25d2430a = 76e09589
 H[5] + f = 9b05688c + 2fc08f85 = cac5f811
 H[6] + g = 1f83d9ab + acc75916 = cc4b32c1
 H[7] + h = 5be0cd19 + 962d8621 = f20e533a
+```
 
+## Words (second block)
 The next 512-bit block of the binary, transformed into 64 32-bit "words":
+```
 W[ 0] = 00000000    W[16] = 00000000    W[32] = 5df4b0c4    W[48] = 2b658dbd
 W[ 1] = 00000000    W[17] = 00d80000    W[33] = e257036a    W[49] = e290f793
 W[ 2] = 00000000    W[18] = 00000000    W[34] = c97bb6f1    W[50] = 9eebb24c
@@ -145,8 +158,11 @@ W[12] = 00000000    W[28] = 63d38035    W[44] = 9e74c972    W[60] = cb4f6ac6
 W[13] = 00000000    W[29] = 090ab713    W[45] = 6614b561    W[61] = 823f97e2
 W[14] = 00000000    W[30] = 4c7539ca    W[46] = 30fc129d    W[62] = ea2f2a7a
 W[15] = 000001c0    W[31] = 0f19a8c9    W[47] = 9ac684a8    W[63] = b9018b52
+```
 
-hex values for a b c d e f g h after each pass in the compression function:
+## Compression function (second block)
+Hex values for the working variables after each pass in the compression function:
+```
         (a)         (b)         (c)         (d)         (e)         (f)         (g)         (h)
 init) 85e655d6    417a1795    3363376a    624cde5c    76e09589    cac5f811    cc4b32c1    f20e533a
    0) 7c20c838    85e655d6    417a1795    3363376a    4670ae6e    76e09589    cac5f811    cc4b32c1
@@ -213,8 +229,10 @@ init) 85e655d6    417a1795    3363376a    624cde5c    76e09589    cac5f811    cc
   61) b25cef29    a9f181dd    1c4cddd9    286fe5f0    2aa1bb13    27ccb387    f487a853    54076664
   62) 908c2123    b25cef29    a9f181dd    1c4cddd9    9a392956    2aa1bb13    27ccb387    f487a853
   63) 9ea7148b    908c2123    b25cef29    a9f181dd    2c5c4ed0    9a392956    2aa1bb13    27ccb387
+```
 
 Add those values back to the hash:
+```
 H[0] + a = 85e655d6 + 9ea7148b = 248d6a61
 H[1] + b = 417a1795 + 908c2123 = d20638b8
 H[2] + c = 3363376a + b25cef29 = e5c02693
@@ -223,8 +241,11 @@ H[4] + e = 76e09589 + 2c5c4ed0 = a33ce459
 H[5] + f = cac5f811 + 9a392956 = 64ff2167
 H[6] + g = cc4b32c1 + 2aa1bb13 = f6ecedd4
 H[7] + h = f20e533a + 27ccb387 = 19db06c1
+```
 
 The padded binary is 2 blocks long. This is the end.
 
-Final hash:
+## Final hash
+```
 248d6a61 d20638b8 e5c02693 0c3e6039 a33ce459 64ff2167 f6ecedd4 19db06c1
+```
