@@ -1,7 +1,7 @@
 message: `"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"`
 
 ## Message padded
-Message transformed into padded binary<br>(message + 1 + 0s + message bits len in little endian)
+Message transformed into padded binary<br>(message + 1 + 0s + message bits len in *little* endian)
 ```
 01100001 01100010 01100011 01100100  01100010 01100011 01100100 01100101
 01100011 01100100 01100101 01100110  01100100 01100101 01100110 01100111
