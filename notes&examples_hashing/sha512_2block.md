@@ -1,4 +1,4 @@
-message: `"abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu"`
+**message:**<br>`"abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu"`
 
 ## Padded message
 Message transformed into padded binary<br>(message + 1 + 0s + message bits len in 128-bit *big* endian)
@@ -293,6 +293,6 @@ H[7] + h = 06add5b50e671c72 + 57e90fa678e4cc97 = 5e96e55b874be909
 The padded binary is 2 blocks long. This is the end.
 
 ## Final hash
-`
+```
 8e959b75dae313da 8cf4f72814fc143f 8f7779c6eb9f7fa1 7299aeadb6889018 501d289e4900f7e4 331b99dec4b5433a c7d329eeb6dd2654 5e96e55b874be909
-`
+```
