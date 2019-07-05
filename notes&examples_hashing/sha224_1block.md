@@ -24,22 +24,22 @@ h[7] = befa4fa4
 512-bit block of the binary, transformed into 64 32-bit "words":
   (The first 16 words are just 32-bit sections of the block, flipped to little endian.
    The rest are produced by running those first 16 through a fuction.)
-W[ 0] = 61626380	W[16] = 61626380	W[32] = 93f5997f	W[48] = fb3e89cb
-W[ 1] = 00000000	W[17] = 000f0000	W[33] = 3b68ba73	W[49] = cc7617db
-W[ 2] = 00000000	W[18] = 7da86405	W[34] = aff4ffc1	W[50] = b9e66c34
-W[ 3] = 00000000	W[19] = 600003c6	W[35] = f10a5c62	W[51] = a9993667
-W[ 4] = 00000000	W[20] = 3e9d7b78	W[36] = 0a8b3996	W[52] = 84badedd
-W[ 5] = 00000000	W[21] = 0183fc00	W[37] = 72af830a	W[53] = c21462bc
-W[ 6] = 00000000	W[22] = 12dcbfdb	W[38] = 9409e33e	W[54] = 1487472c
-W[ 7] = 00000000	W[23] = e2e2c38e	W[39] = 24641522	W[55] = b20f7a99
-W[ 8] = 00000000	W[24] = c8215c1a	W[40] = 9f47bf94	W[56] = ef57b9cd
-W[ 9] = 00000000	W[25] = b73679a2	W[41] = f0a64f5a	W[57] = ebe6b238
-W[10] = 00000000	W[26] = e5bc3909	W[42] = 3e246a79	W[58] = 9fe3095e
-W[11] = 00000000	W[27] = 32663c5b	W[43] = 27333ba3	W[59] = 78bc8d4b
-W[12] = 00000000	W[28] = 9d209d67	W[44] = 0c4763f2	W[60] = a43fcf15
-W[13] = 00000000	W[29] = ec8726cb	W[45] = 840abf27	W[61] = 668b2ff8
-W[14] = 00000000	W[30] = 702138a4	W[46] = 7a290d5d	W[62] = eeaba2cc
-W[15] = 00000018	W[31] = d3b7973b	W[47] = 065c43da	W[63] = 12b1edeb
+W[ 0] = 61626380    W[16] = 61626380    W[32] = 93f5997f    W[48] = fb3e89cb
+W[ 1] = 00000000    W[17] = 000f0000    W[33] = 3b68ba73    W[49] = cc7617db
+W[ 2] = 00000000    W[18] = 7da86405    W[34] = aff4ffc1    W[50] = b9e66c34
+W[ 3] = 00000000    W[19] = 600003c6    W[35] = f10a5c62    W[51] = a9993667
+W[ 4] = 00000000    W[20] = 3e9d7b78    W[36] = 0a8b3996    W[52] = 84badedd
+W[ 5] = 00000000    W[21] = 0183fc00    W[37] = 72af830a    W[53] = c21462bc
+W[ 6] = 00000000    W[22] = 12dcbfdb    W[38] = 9409e33e    W[54] = 1487472c
+W[ 7] = 00000000    W[23] = e2e2c38e    W[39] = 24641522    W[55] = b20f7a99
+W[ 8] = 00000000    W[24] = c8215c1a    W[40] = 9f47bf94    W[56] = ef57b9cd
+W[ 9] = 00000000    W[25] = b73679a2    W[41] = f0a64f5a    W[57] = ebe6b238
+W[10] = 00000000    W[26] = e5bc3909    W[42] = 3e246a79    W[58] = 9fe3095e
+W[11] = 00000000    W[27] = 32663c5b    W[43] = 27333ba3    W[59] = 78bc8d4b
+W[12] = 00000000    W[28] = 9d209d67    W[44] = 0c4763f2    W[60] = a43fcf15
+W[13] = 00000000    W[29] = ec8726cb    W[45] = 840abf27    W[61] = 668b2ff8
+W[14] = 00000000    W[30] = 702138a4    W[46] = 7a290d5d    W[62] = eeaba2cc
+W[15] = 00000018    W[31] = d3b7973b    W[47] = 065c43da    W[63] = 12b1edeb
 
 hex values for a b c d e f g h after each pass in the compression function:
         (a)         (b)         (c)         (d)         (e)         (f)         (g)         (h)
