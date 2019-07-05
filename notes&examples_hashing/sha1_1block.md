@@ -44,7 +44,7 @@ W[15] = 00000018    W[31] = 5898e048    W[47] = 74458547    W[63] = 627b49a1    
 ```
 
 ## Compression function (first block)
-Hex values for a b c d after each pass in the compression function:
+Hex values for the working variables after each pass in the compression function:
 ```
         (a)         (b)         (c)         (d)         (e)  
 init) 67452301    efcdab89    98badcfe    10325476    c3d2e1f0
