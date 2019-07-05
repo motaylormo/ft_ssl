@@ -1,6 +1,6 @@
 message: `"abc"`
 
-## Message padded
+## Padded message
 Message transformed into padded binary<br>(message + 1 + 0s + message bits len in little endian)
 ```
 01100001 01100010 01100011 10000000  00000000 00000000 00000000 00000000
@@ -21,7 +21,7 @@ h[2] = 98badcfe
 h[3] = 10325476
 ```
 
-## First block
+## Words (first block)
 512-bit block of the binary, clumped into 32-bit "words"
 ```
 W[ 0] = 80636261
@@ -42,8 +42,8 @@ W[14] = 00000018
 W[15] = 00000000
 ```
 
-## Values inside compression function
-Hex values for a b c d after each pass in the compression function:
+## Compression function (first block)
+Hex values for the working variables after each pass in the compression function:
 ```
         (a)         (b)         (c)         (d)
 init) 67452301    efcdab89    98badcfe    10325476
@@ -132,5 +132,5 @@ Post:  90015098    3cd24fb0    d6963f7d    28e17f72
 
 ## Final hash
 ```
-900150983cd24fb0d6963f7d28e17f72
+90015098 3cd24fb0 d6963f7d 28e17f72
 ```
