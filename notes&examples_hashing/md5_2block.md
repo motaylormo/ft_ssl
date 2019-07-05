@@ -30,7 +30,7 @@ h[2] = 98badcfe
 h[3] = 10325476
 ```
 
-## First block
+## Words (first block)
 512-bit block of the binary, clumped into 32-bit "words"
 ```
 W[ 0] = 64636261
@@ -51,8 +51,8 @@ W[14] = 00000080
 W[15] = 00000000
 ```
 
-## Values inside compression function (first block)
-Hex values for a b c d after each pass in the compression function:
+## Compression function (first block)
+Hex values for the working variables after each pass in the compression function:
 ```
         (a)         (b)         (c)         (d)
 init) 67452301    efcdab89    98badcfe    10325476
@@ -130,8 +130,8 @@ H[2] + c = 98badcfe + a356097a = 3c10e678
 H[3] + d = 10325476 + 783cd016 = 886f248c
 ```
 
-## Second block
-The next 512-bit block of the binary as 32-bit "words":
+## Words (second block)
+512-bit block of the binary, clumped into 32-bit "words"
 ```
 W[ 0] = 00000000
 W[ 1] = 00000000
@@ -151,8 +151,8 @@ W[14] = 000001c0
 W[15] = 00000000
 ```
 
-## Values inside compression function (second block)
-Hex values for a b c d after each pass in the compression function:
+## Compression function (second block)
+Hex values for the working variables after each pass in the compression function:
 ```
         (a)         (b)         (c)         (d)
 init) 45c58752    ee1afb09    3c10e678    886f248c
@@ -241,5 +241,5 @@ Post:  8215ef07    96a20bca    aae116d3    876c664a
 
 ## Final hash
 ```
-8215ef0796a20bcaaae116d3876c664a
+8215ef07 96a20bca aae116d3 876c664a
 ```
