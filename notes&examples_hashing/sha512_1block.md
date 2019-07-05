@@ -1,7 +1,8 @@
-message: "abc"
+message: `"abc"`
 
-message transformed into padded binary:
-  (message + 1 + 0s + message bits len in 128-bit big endian)
+## Padded message
+Message transformed into padded binary<br>(message + 1 + 0s + message bits len in 128-bit *big* endian)
+```
 01100001 01100010 01100011 10000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
@@ -18,8 +19,10 @@ message transformed into padded binary:
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00011000
+```
 
-hash intialized:
+## Hash intialized
+```
 h[0] = 6a09e667f3bcc908
 h[1] = bb67ae8584caa73b
 h[2] = 3c6ef372fe94f82b
@@ -28,10 +31,11 @@ h[4] = 510e527fade682d1
 h[5] = 9b05688c2b3e6c1f
 h[6] = 1f83d9abfb41bd6b
 h[7] = 5be0cd19137e2179
+```
 
-1024-bit block of the binary, transformed into 80 64-bit "words":
-  (The first 16 words are just 64-bit sections of the block, flipped to little endian.
-   The rest are produced by running those first 16 through a fuction.)
+## Words (first block)
+1024-bit block of the binary, transformed into 80, 64-bit "words". The first 16 words are just 64-bit sections of the block, flipped to little endian. The rest are produced by running those first 16 through a fuction.
+```
 W[ 0] = 6162638000000000   W[16] = 6162638000000000   W[32] = a4af2cfd09fbb924   W[48] = ebeaf1237248019c   W[64] = 5099c3add79f90ec
 W[ 1] = 0000000000000000   W[17] = 00030000000000c0   W[33] = ad289e2e0bd53186   W[49] = 361e80b2d00f3193   W[65] = 5ea81d78e7660bf1
 W[ 2] = 0000000000000000   W[18] = 0a9699a24c700003   W[34] = 3c74563aa2f9673e   W[50] = 2e9839125df3b175   W[66] = ebee6267405ac2a9
@@ -49,7 +53,11 @@ W[13] = 0000000000000000   W[29] = 9f44486fb1e4fbd2   W[45] = 5d63bae58ddd88de  
 W[14] = 0000000000000000   W[30] = b31b8c2b06085f2f   W[46] = 4c044007b744ccbb   W[62] = c1b35a57b16d6aea   W[78] = e449b68198ec611c
 W[15] = 0000000000000018   W[31] = 0e987660934142f6   W[47] = e6a9aa4d74dc7d43   W[63] = cc4918b5949206bb   W[79] = 92aeeed1a7bcf7d2
 
-hex values for a b c d e f g h after each pass in the compression function:
+```
+
+## Compression function (first block)
+Hex values for the working variables after each pass in the compression function:
+```
             (a)                 (b)                 (c)                 (d)                 (e)                 (f)                 (g)                 (h)
 init) 6a09e667f3bcc908    bb67ae8584caa73b    3c6ef372fe94f82b    a54ff53a5f1d36f1    510e527fade682d1    9b05688c2b3e6c1f    1f83d9abfb41bd6b    5be0cd19137e2179
    0) f6afceb8bcfcddf5    6a09e667f3bcc908    bb67ae8584caa73b    3c6ef372fe94f82b    58cb02347ab51f91    510e527fade682d1    9b05688c2b3e6c1f    1f83d9abfb41bd6b
@@ -132,8 +140,10 @@ init) 6a09e667f3bcc908    bb67ae8584caa73b    3c6ef372fe94f82b    a54ff53a5f1d36
   77) d67806db8b148677    654ef9abec389ca9    c8960e6be864b916    33d48dabb5521de2    25c96a7768fb2aa3    ceb9fc3691ce8326    995019a6ff3ba3de    2ba18245b50de4cf
   78) 10d9c4c4295599f6    d67806db8b148677    654ef9abec389ca9    c8960e6be864b916    9bb4d39778c07f9e    25c96a7768fb2aa3    ceb9fc3691ce8326    995019a6ff3ba3de
   79) 73a54f399fa4b1b2    10d9c4c4295599f6    d67806db8b148677    654ef9abec389ca9    d08446aa79693ed7    9bb4d39778c07f9e    25c96a7768fb2aa3    ceb9fc3691ce8326
+```
 
 Add those values back to the hash:
+```
 H[0] + a = 6a09e667f3bcc908 + 73a54f399fa4b1b2 = ddaf35a193617aba
 H[1] + b = bb67ae8584caa73b + 10d9c4c4295599f6 = cc417349ae204131
 H[2] + c = 3c6ef372fe94f82b + d67806db8b148677 = 12e6fa4e89a97ea2
@@ -142,8 +152,11 @@ H[4] + e = 510e527fade682d1 + d08446aa79693ed7 = 2192992a274fc1a8
 H[5] + f = 9b05688c2b3e6c1f + 9bb4d39778c07f9e = 36ba3c23a3feebbd
 H[6] + g = 1f83d9abfb41bd6b + 25c96a7768fb2aa3 = 454d4423643ce80e
 H[7] + h = 5be0cd19137e2179 + ceb9fc3691ce8326 = 2a9ac94fa54ca49f
+```
 
 Since there is only 1 block, this is the end.
 
-Final hash:
+## Final hash
+```
 ddaf35a193617aba cc417349ae204131 12e6fa4e89a97ea2 0a9eeee64b55d39a 2192992a274fc1a8 36ba3c23a3feebbd 454d4423643ce80e 2a9ac94fa54ca49f
+```
