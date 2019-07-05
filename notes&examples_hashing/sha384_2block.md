@@ -191,7 +191,7 @@ W[14] = 0000000000000000   W[30] = 1800000003d8320b   W[46] = 0030125a45f2deae  
 W[15] = 0000000000000380   W[31] = 7d74c7b5f5a385f1   W[47] = 8ff86532f8a0884c   W[63] = 3ad8a34ab16db423   W[79] = fcc7adc3afcef8bf
 ```
 
-## Compression function (first block)
+## Compression function (second block)
 Hex values for the working variables after each pass in the compression function:
 ```
             (a)                 (b)                 (c)                 (d)                 (e)                 (f)                 (g)                 (h)
@@ -295,8 +295,8 @@ The padded binary is 2 blocks long. This is the end.
 ## Cut down to 384 bits
 Discard the final two 64-bit chunks of the hash:
 ```
-512-bits:  09330c33f71147e8  3d192fc782cd1b47  53111b173b3b05d2  2fa08086e3b0f712  fcc7c71a557e2db9  66c3e9fa91746039  1e9f1f7449ad1749  ff334559a7135d3a
-384-bits:  09330c33f71147e8  3d192fc782cd1b47  53111b173b3b05d2  2fa08086e3b0f712  fcc7c71a557e2db9  66c3e9fa91746039
+512 bits:  09330c33f71147e8  3d192fc782cd1b47  53111b173b3b05d2  2fa08086e3b0f712  fcc7c71a557e2db9  66c3e9fa91746039  1e9f1f7449ad1749  ff334559a7135d3a
+384 bits:  09330c33f71147e8  3d192fc782cd1b47  53111b173b3b05d2  2fa08086e3b0f712  fcc7c71a557e2db9  66c3e9fa91746039
 ```
 
 ## Final hash
