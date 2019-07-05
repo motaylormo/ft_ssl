@@ -1,7 +1,8 @@
-message: "abc"
+message: `"abc"`
 
-message transformed into padded binary:
-  (message + 1 + 0s + message bits len in little endian)
+## Message padded
+Message transformed into padded binary<br>(message + 1 + 0s + message bits len in little endian)
+```
 01100001 01100010 01100011 10000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
@@ -10,14 +11,19 @@ message transformed into padded binary:
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00011000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
+```
 
-hash intialized:
+## Hash intialized
+```
 h[0] = 67452301
 h[1] = efcdab89
 h[2] = 98badcfe
 h[3] = 10325476
+```
 
-512-bit block of the binary, clumped into 32-bit "words":
+## First block
+512-bit block of the binary, clumped into 32-bit "words"
+```
 W[ 0] = 80636261
 W[ 1] = 00000000
 W[ 2] = 00000000
@@ -34,8 +40,11 @@ W[12] = 00000000
 W[13] = 00000000
 W[14] = 00000018
 W[15] = 00000000
+```
 
-hex values for a b c d after each pass in the compression function:
+## Values inside compression function
+Hex values for a b c d after each pass in the compression function:
+```
         (a)         (b)         (c)         (d)
 init) 67452301    efcdab89    98badcfe    10325476
    0) 10325476    d6d117b4    efcdab89    98badcfe
@@ -102,18 +111,26 @@ init) 67452301    efcdab89    98badcfe    10325476
   61) 4f9dbe3f    624d8cb2    310ade8f    7327d604
   62) 7327d604    e484b9d8    624d8cb2    310ade8f
   63) 310ade8f    c08226b3    e484b9d8    624d8cb2
+```
 
 Add those values back to the hash:
+```
 H[0] + a = 67452301 + 310ade8f = 98500190
 H[1] + b = efcdab89 + c08226b3 = b04fd23c
 H[2] + c = 98badcfe + e484b9d8 = 7d3f96d6
 H[3] + d = 10325476 + 624d8cb2 = 727fe128
+```
 
 Since there is only 1 block, this is the end.
 
+## Endian flip
 Flip the endianness of the final hash:
+```
  Pre:  98500190    b04fd23c    7d3f96d6    727fe128
 Post:  90015098    3cd24fb0    d6963f7d    28e17f72
+```
 
-Final hash:
+## Final hash
+```
 900150983cd24fb0d6963f7d28e17f72
+```
