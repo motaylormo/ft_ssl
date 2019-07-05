@@ -26,7 +26,7 @@ H[7] = befa4fa4
 ```
 
 ## Words (first block)
-512-bit block of the binary, transformed into 64, 32-bit "words":. The first 16 words are just 32-bit sections of the block, flipped to little endian. The rest are produced by running those first 16 through a fuction.
+512-bit block of the binary, transformed into 64, 32-bit "words". The first 16 words are just 32-bit sections of the block, flipped to little endian. The rest are produced by running those first 16 through a fuction.
 ```
 W[ 0] = 61626380    W[16] = 61626380    W[32] = 93f5997f    W[48] = fb3e89cb
 W[ 1] = 00000000    W[17] = 000f0000    W[33] = 3b68ba73    W[49] = cc7617db
