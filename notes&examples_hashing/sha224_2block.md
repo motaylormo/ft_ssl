@@ -35,7 +35,7 @@ h[7] = befa4fa4
 ```
 
 ## Words (first block)
-512-bit block of the binary, transformed into 64, 32-bit "words":. The first 16 words are just 32-bit sections of the block, flipped to little endian. The rest are produced by running those first 16 through a fuction.
+512-bit block of the binary, transformed into 64, 32-bit "words". The first 16 words are just 32-bit sections of the block, flipped to little endian. The rest are produced by running those first 16 through a fuction.
 ```
 W[ 0] = 61626364    W[16] = eb8012ad    W[32] = a835e16a    W[48] = 0b706583
 W[ 1] = 62636465    W[17] = a7c3ae92    W[33] = 1dff4429    W[49] = 179312ca
@@ -56,7 +56,7 @@ W[15] = 00000000    W[31] = ee59c4c9    W[47] = 6f65c997    W[63] = 6aa60a39
 ```
 
 ## Compression function (first block)
-Hex values for `a`, `b`, `c`, `d`, `e`, `f`, `g`, and `h` after each pass in the compression function:
+Hex values for the working variables after each pass in the compression function:
 ```
         (a)         (b)         (c)         (d)         (e)         (f)         (g)         (h)
 init) c1059ed8    367cd507    3070dd17    f70e5939    ffc00b31    68581511    64f98fa7    befa4fa4
@@ -138,7 +138,7 @@ H[7] + h = befa4fa4 + 3e1ca2f1 = fd16f295
 ```
 
 ## Words (second block)
-The next 512-bit block of the binary, transformed into 64 32-bit "words":
+The next 512-bit block of the binary, transformed into 64, 32-bit "words":
 ```
 W[ 0] = 00000000    W[16] = 00000000    W[32] = 5df4b0c4    W[48] = 2b658dbd
 W[ 1] = 00000000    W[17] = 00d80000    W[33] = e257036a    W[49] = e290f793
@@ -159,7 +159,7 @@ W[15] = 000001c0    W[31] = 0f19a8c9    W[47] = 9ac684a8    W[63] = b9018b52
 ```
 
 ## Compression function (second block)
-Hex values for `a`, `b`, `c`, `d`, `e`, `f`, `g`, and `h` after each pass in the compression function:
+Hex values for the working variables after each pass in the compression function:
 ```
         (a)         (b)         (c)         (d)         (e)         (f)         (g)         (h)
 init) 8250e65d    bcf62f84    66659c33    33e5e91a    10c8b7b0    95392769    1f1419c2    fd16f295
