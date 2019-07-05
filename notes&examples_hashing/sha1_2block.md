@@ -1,4 +1,4 @@
-message: `"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"`
+**message:**<br>`"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"`
 
 ## Padded message
 Message transformed into padded binary<br>(message + 1 + 0s + message bits len in *big* endian)
@@ -148,7 +148,7 @@ H[4] + e = c3d2e1f0 + 86838382 = 4a566572
 ```
 
 ## Words (second block)
-The next 512-bit block of the binary, transformed into 80 32-bit "words":
+The next 512-bit block of the binary, transformed into 80, 32-bit "words":
 ```
 W[ 0] = 00000000    W[16] = 00000000    W[32] = 00000000    W[48] = 000e0000    W[64] = 00000000
 W[ 1] = 00000000    W[17] = 00000000    W[33] = 00007000    W[49] = 0000e000    W[65] = 00d80000
