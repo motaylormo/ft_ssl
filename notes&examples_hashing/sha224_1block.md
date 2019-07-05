@@ -1,7 +1,8 @@
-message: "abc"
+message: `"abc"`
 
-message transformed into padded binary:
-  (message + 1 + 0s + message bits len in big endian)
+## Padded message
+Message transformed into padded binary<br>(message + 1 + 0s + message bits len in *big* endian)
+```
 01100001 01100010 01100011 10000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
@@ -10,20 +11,23 @@ message transformed into padded binary:
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00000000
 00000000 00000000 00000000 00000000  00000000 00000000 00000000 00011000
+```
 
-hash intialized:
-h[0] = c1059ed8
-h[1] = 367cd507
-h[2] = 3070dd17
-h[3] = f70e5939
-h[4] = ffc00b31
-h[5] = 68581511
-h[6] = 64f98fa7
-h[7] = befa4fa4
+## Hash intialized
+```
+H[0] = c1059ed8
+H[1] = 367cd507
+H[2] = 3070dd17
+H[3] = f70e5939
+H[4] = ffc00b31
+H[5] = 68581511
+H[6] = 64f98fa7
+H[7] = befa4fa4
+```
 
-512-bit block of the binary, transformed into 64 32-bit "words":
-  (The first 16 words are just 32-bit sections of the block, flipped to little endian.
-   The rest are produced by running those first 16 through a fuction.)
+## Words (first block)
+512-bit block of the binary, transformed into 64, 32-bit "words":. The first 16 words are just 32-bit sections of the block, flipped to little endian. The rest are produced by running those first 16 through a fuction.
+```
 W[ 0] = 61626380    W[16] = 61626380    W[32] = 93f5997f    W[48] = fb3e89cb
 W[ 1] = 00000000    W[17] = 000f0000    W[33] = 3b68ba73    W[49] = cc7617db
 W[ 2] = 00000000    W[18] = 7da86405    W[34] = aff4ffc1    W[50] = b9e66c34
@@ -40,8 +44,11 @@ W[12] = 00000000    W[28] = 9d209d67    W[44] = 0c4763f2    W[60] = a43fcf15
 W[13] = 00000000    W[29] = ec8726cb    W[45] = 840abf27    W[61] = 668b2ff8
 W[14] = 00000000    W[30] = 702138a4    W[46] = 7a290d5d    W[62] = eeaba2cc
 W[15] = 00000018    W[31] = d3b7973b    W[47] = 065c43da    W[63] = 12b1edeb
+```
 
-hex values for a b c d e f g h after each pass in the compression function:
+## Compression function (first block)
+Hex values for `a`, `b`, `c`, `d`, `e`, `f`, `g`, and `h` after each pass in the compression function:
+```
         (a)         (b)         (c)         (d)         (e)         (f)         (g)         (h)
 init) c1059ed8    367cd507    3070dd17    f70e5939    ffc00b31    68581511    64f98fa7    befa4fa4
    0) 0e96b2da    c1059ed8    367cd507    3070dd17    0434225e    ffc00b31    68581511    64f98fa7
@@ -108,8 +115,10 @@ init) c1059ed8    367cd507    3070dd17    f70e5939    ffc00b31    68581511    64
   61) 55d1c760    c693fc7a    622d5e5b    07bcd846    7e730e00    13dfb889    b6f4c630    149db547
   62) fd89031b    55d1c760    c693fc7a    622d5e5b    55489ee6    7e730e00    13dfb889    b6f4c630
   63) 6203de4a    fd89031b    55d1c760    c693fc7a    2aedb1b3    55489ee6    7e730e00    13dfb889
+```
 
 Add those values back to the hash:
+```
 H[0] + a = c1059ed8 + 6203de4a = 23097d22
 H[1] + b = 367cd507 + fd89031b = 3405d822
 H[2] + c = 3070dd17 + 55d1c760 = 8642a477
@@ -118,12 +127,18 @@ H[4] + e = ffc00b31 + 2aedb1b3 = 2aadbce4
 H[5] + f = 68581511 + 55489ee6 = bda0b3f7
 H[6] + g = 64f98fa7 + 7e730e00 = e36c9da7
 H[7] + h = befa4fa4 + 13dfb889 = d2da082d
+```
 
 Since there is only 1 block, this is the end.
 
+## Cut down to 224 bits
 Discard the final 32-bit chunk of the hash:
-Full 8:  23097d22   3405d822   8642a477   bda255b3   2aadbce4   bda0b3f7   e36c9da7   d2da082d
-Just 7:  23097d22   3405d822   8642a477   bda255b3   2aadbce4   bda0b3f7   e36c9da7
+```
+256 bits:  23097d22   3405d822   8642a477   bda255b3   2aadbce4   bda0b3f7   e36c9da7   d2da082d
+224 bits:  23097d22   3405d822   8642a477   bda255b3   2aadbce4   bda0b3f7   e36c9da7
+```
 
-Final hash:
-23097d223405d8228642a477bda255b32aadbce4bda0b3f7e36c9da7
+## Final hash
+```
+23097d22 3405d822 8642a477 bda255b3 2aadbce4 bda0b3f7 e36c9da7
+```
