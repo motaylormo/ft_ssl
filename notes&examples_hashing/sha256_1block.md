@@ -1,4 +1,4 @@
-message: `"abc"`
+**message:**<br>`"abc"`
 
 ## Padded message
 Message transformed into padded binary<br>(message + 1 + 0s + message bits len in *big* endian)
