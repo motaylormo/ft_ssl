@@ -1,8 +1,12 @@
+{
+    "enable_table_editor": true
+}
+
 * **message:** `"The house stood on a slight rise just on the edge of the village."`
 * **key:** `daf91e7c5a178dfe`
 
 # Message blocks
-| plaintext | plaintext | plaintext | encrypted | encrypted |
+
 | ascii | binary | hexadecimal | binary | hexadecimal |
 | ----- | ------ | ----------- | ------ | ----------- |
 | `"The hous"` | `01010100 01101000`<br>`01100101 00100000`<br>`01101000 01101111`<br>`01110101 01110011` | `54686520686f7573` | `00101001 01001101`<br>`10000000 01000001`<br>`10101000 01111011`<br>`11001111 00011000` | `294d8041a87bcf18`
