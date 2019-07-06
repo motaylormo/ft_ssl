@@ -3,8 +3,6 @@
 ```""```
 (length 0 bits)
 
-It's not in **testfiles** because Github won't let me upload a literally empty file, so just ```touch test0.txt```. No space, no newline, nothing.
-
 | Algorithm | Output
 | --------: | ------- |
 | MD5       | `d41d8cd98f00b204e9800998ecf8427e`
