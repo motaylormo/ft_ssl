@@ -7,12 +7,12 @@ It's not in **testfiles** because Github won't let me upload a literally empty f
 
 | Algorithm | Output
 | --------: | ------- |
-| MD5       | `d41d8cd9 8f00b204 e9800998 ecf8427e`
-| SHA-256   | `e3b0c442 98fc1c14 9afbf4c8 996fb924 27ae41e4 649b934c a495991b 7852b855`
-| SHA-224   | `d14a028c 2a3a2bc9 476102bb 288234c4 15a2b01f 828ea62a c5b3e42f`
-| SHA-1     | `da39a3ee 5e6b4b0d 3255bfef 95601890 afd80709`
-| SHA-512   | `cf83e1357eefb8bd f1542850d66d8007 d620e4050b5715dc 83f4a921d36ce9ce 47d0d13c5d85f2b0 ff8318d2877eec2f 63b931bd47417a81 a538327af927da3e`
-| SHA-384   | `38b060a751ac9638 4cd9327eb1b1e36a 21fdb71114be0743 4c0cc7bf63f6e1da 274edebfe76f65fb d51ad2f14898b95b`
+| MD5       | `d41d8cd98f00b204e9800998ecf8427e`
+| SHA-256   | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+| SHA-224   | `d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f`
+| SHA-1     | `da39a3ee5e6b4b0d3255bfef95601890afd80709`
+| SHA-512   | `cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e`
+| SHA-384   | `38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b`
 
 # Test 1
 **Message:**<br>
