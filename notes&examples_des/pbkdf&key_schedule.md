@@ -5,13 +5,13 @@ To start out, you need a password (string) and a salt (64 bits). If you are give
 * **salt:** `4242424242424242`
 
 Concatenate password and salt together:
-* **hex:** `74 6f 77 65 6c 42 42 42 42 42 42 42 42`
-* **ascii:** `"towelBBBBBBBB"`
+
+| ascii             | hexadecimal |
+| ----------------- | ----------- |
+| `"towelBBBBBBBB"` |  `74 6f 77 65 6c 42 42 42 42 42 42 42 42`
 
 MD5 hash that:
-```
-MD5 ("towelBBBBBBBB") = daf91e7c5a178dfe90650f38c6e46f2b
-```
+```MD5 ("towelBBBBBBBB") = daf91e7c5a178dfe90650f38c6e46f2b```
 
 Split that in half. The left half becomes the key, the right half becomes the IV:
 * **key:** `daf91e7c5a178dfe`
@@ -19,23 +19,30 @@ Split that in half. The left half becomes the key, the right half becomes the IV
 
 # Key Schedule: turing 1 key into 16 subkeys
 We start with our 64-bit key:
-* **hex:** `daf91e7c5a178dfe`
-* **binary:** `1101101011111001000111100111110001011010000101111000110111111110`
+
+| hexadecimal        | binary |
+| ------------------ | ------ |
+| `daf91e7c5a178dfe` | `1101101011111001000111100111110001011010000101111000110111111110`
 
 Run that through permuted choice 1, turing the key from 64-bits to 56-bits:
-* **hex:** `0c39b8abb5ecdff`
-* **binary:** `11000011100110111000101010111011010111101100110111111111`
+
+| hexadecimal       | binary |
+| ----------------- | ------ |
+| `0c39b8abb5ecdff` | `11000011100110111000101010111011010111101100110111111111`
 
 Split that into 2 halves of 28-bits:
-* **left:** `c39b8ab` (`1100001110011011100010101011`)
-* **right:** `b5ecdff` (`1011010111101100110111111111`)
+
+|       | hexadecimal | binary |
+| ----: | ----------- | ------ |
+| left  | `c39b8ab`   | `1100001110011011100010101011`
+| right | `b5ecdff`   | `1011010111101100110111111111`
 
 Now the 16 rounds. Within each round,
 1. the halves' bits are each rotated left by the number specified in the rotation table
 2. concatenated together again (56-bits)
 3. run through permuted choice 2 (56-bits to 48-bits)
 
-| Round | Left | Right | Concatenated | PC-2 |
+| round | left | right | concatenated | PC-2 |
 | ----: | ---- | ----- | ------------ | ---- |
 | 0 | `1000011100110111000101010111`<br>(`8737157`) | `0110101111011001101111111111`<br>(`6bd9bff`) | `00000000000000000000000001110110101111011001101111111111`<br>(`087371576bd9bff`) | `000000000000000011111100111111111111110101001100`<br>(`b9c2fcfffd4c`)
 | 1 | `0000111001101110001010101111`<br>(`0e6e2af`) | `1101011110110011011111111110`<br>(`d7b37fe`) | `00000000000000000000000011111101011110110011011111111110`<br>(`00e6e2afd7b37fe`) | `000000000000000010011010010111111001111011101111`<br>(`a5fc9a5f9eef`)
@@ -53,3 +60,43 @@ Now the 16 rounds. Within each round,
 | 13 | `0111100001110011011100010101`<br>(`7873715`) | `1111011010111101100110111111`<br>(`f6bd9bf`) | `00000000000000000000000001011111011010111101100110111111`<br>(`07873715f6bd9bf`) | `000000000000000010100101111101111101111111010011`<br>(`3797a5f7dfd3`)
 | 14 | `1110000111001101110001010101`<br>(`e1cdc55`) | `1101101011110110011011111111`<br>(`daf66ff`) | `00000000000000000000000001011101101011110110011011111111`<br>(`0e1cdc55daf66ff`) | `000000000000000011100011010111111010011101111011`<br>(`db10e35fa77b`)
 | 15 | `1100001110011011100010101011`<br>(`c39b8ab`) | `1011010111101100110111111111`<br>(`b5ecdff`) | `00000000000000000000000010111011010111101100110111111111`<br>(`0c39b8abb5ecdff`) | `000000000000000001111011111101001101011111111111`<br>(`49aa7bf4d7ff`)
+
+The PC-2 values are your subkeys for encryption mode:
+```
+subkey[ 0] = b9c2fcfffd4c
+subkey[ 1] = a5fc9a5f9eef
+subkey[ 2] = 762fc2defdf9
+subkey[ 3] = 7afc112bff7d
+subkey[ 4] = 4da55efbfdb2
+subkey[ 5] = 66c49fed4f3f
+subkey[ 6] = 7f8922df7ade
+subkey[ 7] = aaa8bbf5d3fd
+subkey[ 8] = 89f2c7ffee9c
+subkey[ 9] = 315fce7977df
+subkey[10] = 7071e1bff0af
+subkey[11] = 91cd75e67fe7
+subkey[12] = c56397beabff
+subkey[13] = 3797a5f7dfd3
+subkey[14] = db10e35fa77b
+subkey[15] = 49aa7bf4d7ff
+```
+
+For decryption mode, you just invert the subkeys' order:
+```
+subkey[ 0] = 49aa7bf4d7ff
+subkey[ 1] = db10e35fa77b
+subkey[ 2] = 3797a5f7dfd3
+subkey[ 3] = c56397beabff
+subkey[ 4] = 91cd75e67fe7
+subkey[ 5] = 7071e1bff0af
+subkey[ 6] = 315fce7977df
+subkey[ 7] = 89f2c7ffee9c
+subkey[ 8] = aaa8bbf5d3fd
+subkey[ 9] = 7f8922df7ade
+subkey[10] = 66c49fed4f3f
+subkey[11] = 4da55efbfdb2
+subkey[12] = 7afc112bff7d
+subkey[13] = 762fc2defdf9
+subkey[14] = a5fc9a5f9eef
+subkey[15] = b9c2fcfffd4c
+```
