@@ -11,7 +11,7 @@ Concatenate password and salt together:
 | `"towelBBBBBBBB"` |  `74 6f 77 65 6c 42 42 42 42 42 42 42 42`
 
 MD5 hash that:
-```MD5 ("towelBBBBBBBB") = daf91e7c5a178dfe90650f38c6e46f2b```
+* `MD5 ("towelBBBBBBBB") = daf91e7c5a178dfe90650f38c6e46f2b`
 
 Split that in half. The left half becomes the key, the right half becomes the IV:
 * **key:** `daf91e7c5a178dfe`
