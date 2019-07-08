@@ -3,8 +3,8 @@
 
 # Message blocks
 
-| plaintext<br>ascii | plaintext<br>hexadecimal | encrypted<br>hexadecimal |
-| ------------ | ------------------ | ------------------ |
+| plaintext<br>ascii | plaintext<br>hexadecimal | encrypted<br>ascii | encrypted<br>hexadecimal |
+| ------------------ | ------------------------ | ------------------ | ------------------------ |
 | `The hous` | `73756f6820656854` | <pre>)M�A�{�</pre> | `18cf7ba841804d29` |
 | `e stood ` | `20646f6f74732065` | <pre>�_>�h+V,</pre> | `2c562b68b93e5fc0` |
 | `on a sli` | `696c732061206e6f` | <pre>�fUx%���</pre> | `da92b42578556685` |
