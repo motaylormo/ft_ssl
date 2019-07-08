@@ -19,17 +19,14 @@ Split that in half. The left half becomes the key, the right half becomes the IV
 
 # Key Schedule: turing 1 key into 16 subkeys
 We start with our 64-bit key:
-`daf91e7c5a178dfe`
+* `daf91e7c5a178dfe`
 
 Run that through permuted choice 1, turing the key from 64-bits to 56-bits:
-`0c39b8abb5ecdff`
+* `0c39b8abb5ecdff`
 
 Split that into 2 halves of 28-bits:
-
-|       | hexadecimal |
-| ----: | ----------- |
-| left  | `c39b8ab`   |
-| right | `b5ecdff`   |
+* left: `c39b8ab`
+* right: `b5ecdff`
 
 Now the 16 rounds. Within each round,
 1. the halves' bits are each rotated left by the number specified in the rotation table
