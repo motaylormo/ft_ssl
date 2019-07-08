@@ -3,16 +3,17 @@
 
 # Message blocks
 
-| ascii | plaintext<br>hexadecimal | encrypted<br>hexadecimal |
+| plaintext<br>ascii | plaintext<br>hexadecimal | encrypted<br>hexadecimal |
 | ------------ | ------------------ | ------------------ |
-| `"The hous"` | `54686520686f7573` | `294d8041a87bcf18`
-| `"e stood "` | `652073746f6f6420` | `c05f3eb9682b562c`
-| `"on a sli"` | `6f6e206120736c69` | `8566557825b492da`
-| `"ght rise"` | `6768742072697365` | `6a23ec60c10e6054`
-| `" just on"` | `206a757374206f6e` | `5a3a3f17bab9130f`
-| `" the edg"` | `2074686520656467` | `c93a638b0abecee1`
-| `"e of the"` | `65206f6620746865` | `ae623faf7a933083`
-| `" village"` | `2076696c6c616765` | `8122a518802c545e`
-| `"."`        | `2e07070707070707` | `39600438116299c4`
+| `The hous` | `73756f6820656854` | <pre>)M�A�{�</pre> | `18cf7ba841804d29` |
+| `e stood ` | `20646f6f74732065` | <pre>�_>�h+V,</pre> | `2c562b68b93e5fc0` |
+| `on a sli` | `696c732061206e6f` | <pre>�fUx%���</pre> | `da92b42578556685` |
+| `ght rise` | `6573697220746867` | <pre>j#�`�`T</pre> | `54600ec160ec236a` |
+| ` just on` | `6e6f207473756a20` | <pre>Z:?��</pre> | `0f13b9ba173f3a5a` |
+| ` the edg` | `6764652065687420` | <pre>�:c�
+���</pre> | `e1cebe0a8b633ac9` |
+| `e of the` | `65687420666f2065` | <pre>�b?�z�0�</pre> | `8330937aaf3f62ae` |
+| ` village` | `6567616c6c697620` | <pre>�"��,T^</pre> | `5e542c8018a52281` |
+| `.` | `070707070707072e` | <pre>9`8b��</pre> | `c499621138046039` |
 
 In the last block, because there is only 1 byte of message left, you pad the rest of the bytes in the block with the number of bytes which are empty (in this case, 7, `0x07`).
