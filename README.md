@@ -19,7 +19,7 @@ See the **[hashing README](./README_hashing.md)**.
 See the **[des README](./README_des.md)**.
 * Commands:
 	* `des-ecb`
-	* `des-cbc`
+	* `des-cbc`, `des`
 * Flags:
 	* `-d`, decrypt mode [default: encrypt]
 	* `-e`, encrypt mode [default: encrypt]
