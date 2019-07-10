@@ -1,7 +1,7 @@
 **message:**<br>`"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"`
 
 ## Message padded
-Message transformed into padded binary<br>(message + 1 + 0s + message bits len in *little* endian)
+Message transformed into padded binary<br>(message + 1 + 0s + number of message bits as a 64-bit *little* endian number)
 ```
 01100001 01100010 01100011 01100100  01100010 01100011 01100100 01100101
 01100011 01100100 01100101 01100110  01100100 01100101 01100110 01100111
@@ -24,10 +24,10 @@ Message transformed into padded binary<br>(message + 1 + 0s + message bits len i
 
 ## Hash intialized
 ```
-h[0] = 67452301
-h[1] = efcdab89
-h[2] = 98badcfe
-h[3] = 10325476
+H[0] = 67452301
+H[1] = efcdab89
+H[2] = 98badcfe
+H[3] = 10325476
 ```
 
 ## Words (first block)
