@@ -5,40 +5,39 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
 ### Cryptographic hashing algorithms
 See the **[hashing README](./README_hashing.md)**.
-* Commands:
-	* `md5`
-	* `sha1`
-	* `sha256`
-	* `sha224`
-	* `sha512`
-	* `sha384`
-* Flags:
-	* `-s`, input is the given string [default: stdin]
+
+| Commands | Flags |
+| -------- | ----- |
+| `md5`    | `-s`, input is the given string [default: stdin]
+| `sha1`
+| `sha256`
+| `sha224`
+| `sha512`
+| `sha384`
 
 ### DES
 See the **[des README](./README_des.md)**.
-* Commands:
-	* `des-ecb`
-	* `des-cbc`, `des`
-* Flags:
-	* `-d`, decrypt mode [default: encrypt]
-	* `-e`, encrypt mode [default: encrypt]
-	* `-i`, input file for message [default: stdin]
-	* `-o`, output file for message [default: stdout]
-	* `-a`, decode/encode the input/output in base64, depending on the encrypt mode
-	* `-p`, password in ascii
-	* `-s`, salt in hex
-	* `-k`, key in hex
-	* `-v`, initialization vector in hex
+
+| Commands | Flags |
+| -------- | ----- |
+| `des-ecb`      | `-d`, decrypt mode [default: encrypt]
+| `des-cbc`      | `-e`, encrypt mode [default: encrypt]
+| `des`, des-cbc | `-i`, input file for message [default: stdin]
+|                | `-o`, output file for message [default: stdout]
+|                | `-a`, decode/encode the input/output in base64, depending on the encrypt mode
+|                | `-p`, password in ascii
+|                | `-s`, salt in hex
+|                | `-k`, key in hex
+|                | `-v`, initialization vector in hex
 
 ### Base 64
-* Commands:
-	* `base64`
-* Flags:
-	* `-d`, decode mode [default: encrypt]
-	* `-e`, encode mode [default: encrypt]
-	* `-i`, input file [default: stdin]
-	* `-o`, output file [default: stdout]
+
+| Commands | Flags |
+| -------- | ----- |
+| `base64` | `-d`, decode mode [default: encrypt]
+|          | `-e`, encode mode [default: encrypt]
+|          | `-i`, input file [default: stdin]
+|          | `-o`, output file [default: stdout]
 
 # notes&examples
 Several deliberate features of cryptographic hash functions (for example, the fact that they're one-way and you can't back-evaluate, or how the _slightest_ difference makes the output look _entirely_ different) make it **very difficult** to figure out why a program is not working properly.
