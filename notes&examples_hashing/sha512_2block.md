@@ -1,7 +1,7 @@
 **message:**<br>`"abcdefghbcdefghicdefghijdefghijkefghijklfghijklmghijklmnhijklmnoijklmnopjklmnopqklmnopqrlmnopqrsmnopqrstnopqrstu"`
 
 ## Padded message
-Message transformed into padded binary<br>(message + 1 + 0s + message bits len in 128-bit *big* endian)
+Message transformed into padded binary<br>(message + 1 + 0s + number of message bits as a 128-bit *big* endian number)
 ```
 01100001 01100010 01100011 01100100  01100101 01100110 01100111 01101000
 01100010 01100011 01100100 01100101  01100110 01100111 01101000 01101001
