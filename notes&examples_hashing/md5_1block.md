@@ -15,10 +15,10 @@ Message transformed into padded binary<br>(message + 1 + 0s + number of message 
 
 ## Hash intialized
 ```
-h[0] = 67452301
-h[1] = efcdab89
-h[2] = 98badcfe
-h[3] = 10325476
+H[0] = 67452301
+H[1] = efcdab89
+H[2] = 98badcfe
+H[3] = 10325476
 ```
 
 ## Words (first block)
