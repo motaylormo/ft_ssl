@@ -28,7 +28,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 |                | `-k`, key in hex
 |                | `-v`, initialization vector in hex
 
-### Base 64
+### Base 64 <kbd>[README](./README_base64.md)<kbd>
 
 | Commands | Flags |
 | -------- | ----- |
