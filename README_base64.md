@@ -1,3 +1,5 @@
+[Wikipedia](https://en.wikipedia.org/wiki/Base64) is pretty useful on this one.
+
 # 1 byte
 * Input: `Man`
 * Output: `TWFu`
