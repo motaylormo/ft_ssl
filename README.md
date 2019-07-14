@@ -3,7 +3,7 @@ This is my version of the **[42](https://www.42.us.org/)** cadet projects `ft_ss
 # ft_ssl
 Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
-### Cryptographic hashing algorithms <kbd>[README](./README_hashing.md)</kbd> <kbd>[notes&examples](./notes%26examples_hashing)</kbd>
+### Cryptographic hashing algorithms <kbd>[README](./README_hashing.md)</kbd> <kbd>[test cases](./hashing_text_cases)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
@@ -14,7 +14,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 | `sha512`
 | `sha384`
 
-### DES <kbd>[README](./README_des.md)</kbd> <kbd>[notes&examples](./notes%26examples_des)</kbd>
+### DES <kbd>[README](./README_des.md)</kbd> <kbd>[test cases](./des_text_cases)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
@@ -37,10 +37,10 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 |          | `-i`, input file [default: stdin]
 |          | `-o`, output file [default: stdout]
 
-# notes&examples
-Several deliberate features of cryptographic hash functions (for example, the fact that they're one-way and you can't back-evaluate, or how the _slightest_ difference makes the output look _entirely_ different) make it **very difficult** to figure out why a program is not working properly.
+# Test cases
+Several deliberate features of cryptographic hash functions—for example, the fact that they're one-way and you can't back-evaluate, or how the _slightest_ difference makes the output look _entirely_ different—make it **very difficult** to figure out why a program is not working properly.
 
-So I created **notes&examples**: They're meticulous traces of what the values should be every step along the way for test cases, so you can compare that to the values _you_ have and figure out where you're going wrong.
+So I created test cases: They're meticulous traces of what the values should be every step along the way, so you can compare that to the values _you_ have and figure out where you're going wrong.
 
 # Usage
 Real OpenSSL's usage prints out its options in the format of 4 columns, each 18 chracters wide. This remains constant, regardless of the window's width; it does not resize to fit.
