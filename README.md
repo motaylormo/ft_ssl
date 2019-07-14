@@ -3,7 +3,7 @@ This is my version of the **[42](https://www.42.us.org/)** cadet projects `ft_ss
 # ft_ssl
 Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
-### Cryptographic hashing algorithms <kbd>[README](./README_hashing.md)<kbd>
+### Cryptographic hashing algorithms <kbd>[README](./README_hashing.md)</kbd> <kbd>[notes&examples](./notes%26examples_hashing)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
@@ -14,7 +14,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 | `sha512`
 | `sha384`
 
-### DES <kbd>[README](./README_des.md)<kbd>
+### DES <kbd>[README](./README_des.md)</kbd> <kbd>[notes&examples](./notes%26examples_des)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
@@ -28,7 +28,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 |                | `-k`, key in hex
 |                | `-v`, initialization vector in hex
 
-### Base 64 <kbd>[README](./README_base64.md)<kbd>
+### Base 64 <kbd>[README](./README_base64.md)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
@@ -40,13 +40,12 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 # notes&examples
 Several deliberate features of cryptographic hash functions (for example, the fact that they're one-way and you can't back-evaluate, or how the _slightest_ difference makes the output look _entirely_ different) make it **very difficult** to figure out why a program is not working properly.
 
-So I created the **[notes&examples_hashing](./notes%26examples_hashing)** folder: They're meticulous traces of what the values should be every step along the way for cryptographic hash test cases, so you can compare that to the values _you_ have and figure out where you're going wrong.
-
-**[notes&examples_des](./notes%26examples_des)** is the same idea for DES, but to a lesser extent.
-
-**[This](https://wiki.openssl.org/index.php/Enc)** is a really good list of all the flags for real OpenSSL.
+So I created **notes&examples**: They're meticulous traces of what the values should be every step along the way for test cases, so you can compare that to the values _you_ have and figure out where you're going wrong.
 
 # Usage
 Real OpenSSL's usage prints out its options in the format of 4 columns, each 18 chracters wide. This remains constant, regardless of the window's width; it does not resize to fit.
 
 I did the same, but I listed the flags there as well.
+
+# Other notes
+* **[This](https://wiki.openssl.org/index.php/Enc)** is a really good list of all the flags for real OpenSSL.
