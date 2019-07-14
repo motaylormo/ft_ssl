@@ -3,7 +3,7 @@ This is my version of the **[42](https://www.42.us.org/)** cadet projects `ft_ss
 # ft_ssl
 Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
-### Cryptographic hashing algorithms <kbd>[README](./README_hashing.md)</kbd> <kbd>[test cases](./hashing/test_cases)</kbd>
+### Cryptographic hashing algorithms <kbd>[README](./hashing_notes/README_hashing.md)</kbd> <kbd>[test cases](./hashing_notes/test_cases)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
@@ -14,7 +14,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 | `sha512`
 | `sha384`
 
-### DES <kbd>[README](./README_des.md)</kbd> <kbd>[test cases](./des/test_cases)</kbd>
+### DES <kbd>[README](./des_notes/README_des.md)</kbd> <kbd>[test cases](./des_notes/test_cases)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
@@ -28,7 +28,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 |                | `-k`, key in hex
 |                | `-v`, initialization vector in hex
 
-### Base 64 <kbd>[README](./README_base64.md)</kbd>
+### Base 64 <kbd>[README](./base64_notes/README_base64.md)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
