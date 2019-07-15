@@ -7,7 +7,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 	<tr align="center">
 		<td><b></b></td>
 		<td><b>Commands</b></td>
-		<td><b>Flags</b></td>
+		<td colspan="2"><b>Flags</b></td>
 	</tr>
 	<tr>
 		<td>
@@ -24,7 +24,9 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 			<code>sha512</code><br>
 			<code>sha384</code>
 		</td>
-		<td><code>-s</code>, input is the given string [default: stdin]</td>
+		<td colspan="2">
+			<code>-s</code>, input is the given string [default: stdin]
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -38,13 +40,15 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 			<code>des</code>
 		</td>
 		<td>
-			<code>-d</code>, decrypt mode [default: encrypt]<br>
-			<code>-e</code>, encrypt mode [default: encrypt]<br>
 			<code>-a</code>, decode/encode the input/output in base64, depending on the encrypt mode<br>
 			<code>-p</code>, password in ascii<br>
 			<code>-s</code>, salt in hex<br>
 			<code>-k</code>, key in hex<br>
 			<code>-v</code>, initialization vector in hex
+		</td>
+		<td rowspan="2">
+			<code>-d</code>, decrypt mode [default: encrypt]<br>
+			<code>-e</code>, encrypt mode [default: encrypt]
 		</td>
 	</tr>
 		<tr>
@@ -53,10 +57,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 			<kbd><a href="./base64_notes/README_base64.md">README</a></kbd>
 		</td>
 		<td><code>base64</code></td>
-		<td>
-			<code>-d</code>, decode mode [default: encrypt]<br>
-			<code>-e</code>, encode mode [default: encrypt]
-		</td>
+		<td></td>
 	</tr>
 </table>
 
