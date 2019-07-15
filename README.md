@@ -3,7 +3,7 @@ This is my version of the **[42](https://www.42.us.org/)** cadet projects `ft_ss
 # ft_ssl
 Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
-### Cryptographic hashing algorithms <kbd>[README](./hashing_notes/README_hashing.md)</kbd> <kbd>[test cases](./hashing_notes/test_cases)</kbd>
+### Cryptographic hashing algorithms <kbd>[README](./hashing_notes/README_hashing.md)</kbd> <kbd>[test cases](./hashing_notes/test_cases)</kbd> <kbd>[documentation](./hashing_notes/fancy_documentation)</kbd>
 
 | Commands | Flags |
 | -------- | ----- |
