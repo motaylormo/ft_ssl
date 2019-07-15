@@ -34,7 +34,8 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 		</td>
 		<td>
 			<code>des-ecb</code><br>
-			<code>des-cbc</code>,&nbsp<code>des</code>
+			<code>des-cbc</code><br>
+			<code>des</code>
 		</td>
 		<td>
 			<code>-d</code>, decrypt mode [default: encrypt]<br>
