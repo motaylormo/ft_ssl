@@ -1,7 +1,3 @@
-(Note: [this](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm) is another good DES resource, but it's very old and 0-indexes inconsistently.)
-
-***
-
 * **message:** `"The house stood on a slight rise just on the edge of the village."`
 * **key:** `daf91e7c5a178dfe` (see [here](./pbkdf&key_schedule.md))
 
