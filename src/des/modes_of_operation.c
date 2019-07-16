@@ -45,10 +45,7 @@ static int	remove_padding(t_env env, void *ptr)
 	block = ptr;
 	len = BLOCK_SIZE / 8;
 	if (env.mode == 1 && (block[7] < (BLOCK_SIZE / 8)))
-	{
-		ft_printf("[%c] [%x]\n", block[7], block[7]);
 		len -= block[7];
-	}
 	return (len);
 }
 
@@ -60,9 +57,7 @@ uint64_t	ft_des_ecb(t_env *env, uint64_t block, uint64_t *subkey)
 	uint64_t	crypted_block;
 
 	(void)env;
-//	block = endianflip_64bit(block);
 	crypted_block = des_inner(block, subkey);
-//	crypted_block = endianflip_64bit(crypted_block);
 	return (crypted_block);
 }
 
@@ -75,14 +70,12 @@ uint64_t	ft_des_cbc(t_env *env, uint64_t block, uint64_t *subkey)
 {
 	uint64_t	crypted_block;
 
-//	block = endianflip_64bit(block);
 	if (env->mode == 0)
 		block ^= env->iv;
 	crypted_block = des_inner(block, subkey);
 	if (env->mode == 1)
 		crypted_block ^= env->iv;
 	env->iv = (env->mode == 1) ? block : crypted_block;
-//	crypted_block = endianflip_64bit(crypted_block);
 	return (crypted_block);
 }
 
@@ -109,5 +102,4 @@ void	ft_des(t_env env, uint64_t (*f)(t_env*, uint64_t, uint64_t*))
 		on_deck = crypted_block;
 	}
 	write(env.output_fd, &on_deck, remove_padding(env, &on_deck));
-//	print_hash_base64(crypted_block, (64 / 8) * i);
 }

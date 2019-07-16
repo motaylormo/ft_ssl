@@ -14,26 +14,22 @@ NAME = ft_ssl
 FLAGS = -Wall -Wextra -Werror -g
 
 LIB = -I libft/ ./libft/libft.a
-
 INC = -I ./inc
 
 MISC = error.c \
 		endian.c \
 		env_struct.c
-	#	base64.c
 
 SSL_SH = main.c \
 		commands.c \
 		flags.c \
 		print_bitfield.c
 
-ALGOS = md5.c \
+HASH = block.c \
+		md5.c \
 		sha1.c \
 		sha256_sha224.c \
 		sha512_sha384.c
-
-HASH = $(addprefix algorithms/, $(ALGOS)) \
-		block.c
 
 DES = des_inner.c \
 		modes_of_operation.c \
