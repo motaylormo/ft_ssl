@@ -3,6 +3,10 @@ This is my version of the **[42](https://www.42.us.org/)** cadet projects `ft_ss
 # ft_ssl
 Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
+# Stuffs
+`-i`, input file to read from [default: stdin]<br>
+`-o`, output file to write to [default: stdout]
+
 <table style="vertical-align:center;">
 	<tr align="center">
 		<td><b></b></td>
@@ -71,5 +75,7 @@ Real OpenSSL's usage prints out its options in the format of 4 columns, each 18 
 
 I did the same, but I listed the flags there as well.
 
-# Other notes
-* **[This](https://wiki.openssl.org/index.php/Enc)** is a really good list of all the flags for real OpenSSL.
+# Linkies
+* [This](https://wiki.openssl.org/index.php/Enc) is a really good list of all the flags for real OpenSSL.
+* [This](https://csrc.nist.gov/csrc/media/publications/fips/180/2/archive/2002-08-01/documents/fips180-2.pdf) is good documentation for SHA.
+* [This](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm) is the best DES resource I could find, but it's very old, and 0-indexed inconsistently.
