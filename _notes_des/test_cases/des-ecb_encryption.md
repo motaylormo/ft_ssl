@@ -1,5 +1,5 @@
 * **message:** `"The house stood on a slight rise just on the edge of the village."`
-* **key:** `daf91e7c5a178dfe` (see [here](./_notes_des/test_cases/pbkdf.md))
+* **key:** `daf91e7c5a178dfe` (see [here](./pbkdf.md))
 
 # Message blocks
 | plaintext<br>ascii | plaintext<br>hexadecimal | encrypted<br>ascii | encrypted<br>hexadecimal |
