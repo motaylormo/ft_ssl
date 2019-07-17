@@ -1,5 +1,5 @@
 * **message:** `"The house stood on a slight rise just on the edge of the village."`
-* **key:** `daf91e7c5a178dfe` (see [here](./pbkdf&key_schedule.md))
+* **key:** `daf91e7c5a178dfe` (see [here](./_notes_des/test_cases/pbkdf.md))
 
 # Message blocks
 | plaintext<br>ascii | plaintext<br>hexadecimal | encrypted<br>ascii | encrypted<br>hexadecimal |
@@ -18,8 +18,8 @@
 <pre>The house stood on a slight rise just on the edge of the village.</pre>
 
 **Encrypted message:**
-<pre>)M€A¨{ÏÀ_>¹h+V,…fUx%´’Új#ì`Á`TZ:?º¹É:c‹
-¾Îá®b?¯z“0ƒ"¥€,T^9`8b™Ä</pre>
+<pre>)M�A�{��_>�h+V,�fUx%���j#�`�`TZ:?���:c�
+���b?�z�0��"��,T^9`8b��</pre>
 
 # Block Walkthroughs
 ## Block 1 (`"The hous"`)
