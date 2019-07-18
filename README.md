@@ -16,9 +16,9 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 	<tr>
 		<td>
 			<b>Hashs</b><br>
-			<kbd><a href="./hashing_notes/README_hashing.md">README</a></kbd><br>
-			<kbd><a href="./hashing_notes/test_cases">test cases</a></kbd><br>
-			<kbd><a href="./hashing_notes/fancy_documentation">documentation</a></kbd>
+			<kbd><a href="./_hashing_notes/README_hashing.md">README</a></kbd><br>
+			<kbd><a href="./_hashing_notes/test_cases">test cases</a></kbd><br>
+			<kbd><a href="./_hashing_notes/fancy_documentation">documentation</a></kbd>
 		</td>
 		<td>
 			<code>md5</code><br>
@@ -35,8 +35,8 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 	<tr>
 		<td>
 			<b>DES</b><br>
-			<kbd><a href="./des_notes/README_des.md">README</a></kbd><br>
-			<kbd><a href="./des_notes/test_cases">test cases</a></kbd>
+			<kbd><a href="./_des_notes/README_des.md">README</a></kbd><br>
+			<kbd><a href="./_des_notes/test_cases">test cases</a></kbd>
 		</td>
 		<td>
 			<code>des-ecb</code><br>
@@ -58,7 +58,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 		<tr>
 		<td>
 			<b>Base64</b><br>
-			<kbd><a href="./base64_notes/README_base64.md">README</a></kbd>
+			<kbd><a href="./_base64_notes/README_base64.md">README</a></kbd>
 		</td>
 		<td><code>base64</code></td>
 		<td></td>
