@@ -56,11 +56,6 @@ Several deliberate features of cryptographic hash functions—for example, the f
 
 So I created test cases: They're meticulous traces of what the values should be every step along the way, so you can compare that to the values _you_ have and figure out where you're going wrong.
 
-# Usage
-Real OpenSSL's usage prints out its options in the format of 4 columns, each 18 chracters wide. This remains constant, regardless of the window's width; it does not resize to fit.
-
-I did the same, but I listed the flags there as well.
-
 # Linkies
 * [This](https://wiki.openssl.org/index.php/Enc) is a really good list of all the flags for real OpenSSL.
 * [This](https://csrc.nist.gov/csrc/media/publications/fips/180/2/archive/2002-08-01/documents/fips180-2.pdf) is good documentation for SHA.
