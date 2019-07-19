@@ -65,3 +65,12 @@ I did the same, but I listed the flags there as well.
 * [This](https://wiki.openssl.org/index.php/Enc) is a really good list of all the flags for real OpenSSL.
 * [This](https://csrc.nist.gov/csrc/media/publications/fips/180/2/archive/2002-08-01/documents/fips180-2.pdf) is good documentation for SHA.
 * [This](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm) is the best DES resource I could find, but it's very old, and 0-indexed inconsistently.
+* Wikipedia:
+	* Cryptographic hashs
+		* [MD5](https://en.wikipedia.org/wiki/MD5)
+		* [SHA-1](https://en.wikipedia.org/wiki/SHA-1)
+		* [SHA-256](https://en.wikipedia.org/wiki/SHA-2)
+	* DES
+		* [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard)
+		* [DES tables](https://en.wikipedia.org/wiki/DES_supplementary_material)
+	* [Base64](https://en.wikipedia.org/wiki/Base64)
