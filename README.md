@@ -73,4 +73,5 @@ I did the same, but I listed the flags there as well.
 	* DES
 		* [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard)
 		* [DES tables](https://en.wikipedia.org/wiki/DES_supplementary_material)
+		* [Modes of operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
 	* [Base64](https://en.wikipedia.org/wiki/Base64)
