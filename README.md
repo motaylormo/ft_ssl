@@ -26,7 +26,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 		<td colspan="2">
 			<code>-s</code>, input is the given string
 		</td>
-		<td rowspan="3" width="25%">
+		<td rowspan="3">
 			<code>-i</code>, input file to read from<br>
 			<code>-o</code>, output file to write to
 		</td>
@@ -34,13 +34,13 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 	<tr>
 		<td><b>DES</b><br></td>
 		<td>
-			<code>-a</code>, decode/encode the input/output in base64, depending on the encrypt mode<br>
+			<code>-a</code>, decode/encode the input/output in base64,<br>depending on encrypt mode<br>
 			<code>-p</code>, password in ascii<br>
 			<code>-s</code>, salt in hex<br>
 			<code>-k</code>, key in hex<br>
 			<code>-v</code>, initialization vector in hex
 		</td>
-		<td rowspan="2" width="20%">
+		<td rowspan="2">
 			<code>-d</code>, decrypt mode<br>
 			<code>-e</code>, encrypt mode
 		</td>
