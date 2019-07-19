@@ -7,9 +7,9 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
 | Cryptographic hash | DES                | Base64             |
 | ------------------ | ------------------ | ------------------ |
-| [README](./hashing_notes/README_hashing.md) | [README](./des_notes/README_des.md) | [README](./base64_notes/README_base64.md)
-| [test cases](./hashing_notes/test_cases) | [test cases](./des_notes/test_cases)
-| [documentation](./hashing_notes/fancy_documentation)
+| [README](./_notes_hashing/README_hashing.md) | [README](./_notes_des/README_des.md) | [README](./_notes_base64/README_base64.md)
+| [test cases](./_notes_hashing/test_cases) | [test cases](./_notes_des/test_cases) | [test cases](./_notes_base64/test_cases)
+| [documentation](./_notes_hashing/fancy_documentation)
 | `md5`<br>`sha1`<br>`sha256`<br>`sha224`<br>`sha512`<br>`sha384` | `des-ecb`<br>`des-cbc`<br>`des` | `base64` |
 
 ### Flags
