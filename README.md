@@ -26,7 +26,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 		<td colspan="2">
 			<code>-s</code>, input is the given string
 		</td>
-		<td rowspan="3" width="25               %">
+		<td rowspan="3" width="25%">
 			<code>-i</code>, input file to read from<br>
 			<code>-o</code>, output file to write to
 		</td>
