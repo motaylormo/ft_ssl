@@ -12,7 +12,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 | [documentation](./_notes_hashing/fancy_documentation)
 | `md5`<br>`sha1`<br>`sha256`<br>`sha224`<br>`sha512`<br>`sha384` | `des-ecb`<br>`des-cbc`<br>`des` | `base64` |
 
-### Flags
+## Flags
 * **Default input:** stdin
 * **Default output:** stdout
 * **Default mode:** encrypt
