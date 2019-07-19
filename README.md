@@ -3,64 +3,50 @@ This is my version of the **[42](https://www.42.us.org/)** cadet projects `ft_ss
 # ft_ssl
 Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines.
 
-# Stuffs
-`-i`, input file to read from [default: stdin]<br>
-`-o`, output file to write to [default: stdout]
+# Commands
 
+| Cryptographic hash | DES                | Base64             |
+| ------------------ | ------------------ | ------------------ |
+| [README](./hashing_notes/README_hashing.md) | [README](./des_notes/README_des.md) | [README](./base64_notes/README_base64.md)
+| [test cases](./hashing_notes/test_cases) | [test cases](./des_notes/test_cases)
+| [documentation](./hashing_notes/fancy_documentation)
+| `md5`<br>`sha1`<br>`sha256`<br>`sha224`<br>`sha512`<br>`sha384` | `des-ecb`<br>`des-cbc`<br>`des` | `base64` |
+
+### Flags
+* **Default input:** stdin
+* **Default output:** stdout
+* **Default mode:** encrypt
 <table style="vertical-align:center;">
 	<tr align="center">
-		<td><b></b></td>
-		<td><b>Commands</b></td>
-		<td colspan="2"><b>Flags</b></td>
+		<td></td>
+		<td colspan="3"><b>Flags</b></td>
 	</tr>
 	<tr>
-		<td>
-			<b>Hashs</b><br>
-			<kbd><a href="./_notes_hashing/README_hashing.md">README</a></kbd><br>
-			<kbd><a href="./_notes_hashing/test_cases">test cases</a></kbd><br>
-			<kbd><a href="./_notes_hashing/fancy_documentation">documentation</a></kbd>
-		</td>
-		<td>
-			<code>md5</code><br>
-			<code>sha1</code><br>
-			<code>sha256</code><br>
-			<code>sha224</code><br>
-			<code>sha512</code><br>
-			<code>sha384</code>
-		</td>
+		<td><b>Hashs</b></td>
 		<td colspan="2">
-			<code>-s</code>, input is the given string [default: stdin]
+			<code>-s</code>, input is the given string
+		</td>
+		<td rowspan="3" width="25               %">
+			<code>-i</code>, input file to read from<br>
+			<code>-o</code>, output file to write to
 		</td>
 	</tr>
 	<tr>
+		<td><b>DES</b><br></td>
 		<td>
-			<b>DES</b><br>
-			<kbd><a href="./_notes_des/README_des.md">README</a></kbd><br>
-			<kbd><a href="./_notes_des/test_cases">test cases</a></kbd>
-		</td>
-		<td>
-			<code>des-ecb</code><br>
-			<code>des-cbc</code><br>
-			<code>des</code>
-		</td>
-		<td width="50%">
 			<code>-a</code>, decode/encode the input/output in base64, depending on the encrypt mode<br>
 			<code>-p</code>, password in ascii<br>
 			<code>-s</code>, salt in hex<br>
 			<code>-k</code>, key in hex<br>
 			<code>-v</code>, initialization vector in hex
 		</td>
-		<td width="50%" rowspan="2">
-			<code>-d</code>, decrypt mode [default: encrypt]<br>
-			<code>-e</code>, encrypt mode [default: encrypt]
+		<td rowspan="2" width="20%">
+			<code>-d</code>, decrypt mode<br>
+			<code>-e</code>, encrypt mode
 		</td>
 	</tr>
 		<tr>
-		<td>
-			<b>Base64</b><br>
-			<kbd><a href="./_notes_base64/README_base64.md">README</a></kbd>
-		</td>
-		<td><code>base64</code></td>
+		<td><b>Base64</b></td>
 		<td></td>
 	</tr>
 </table>
