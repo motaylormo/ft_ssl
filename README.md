@@ -60,6 +60,7 @@ So I created test cases: They're meticulous traces of what the values should be 
 * [This](https://wiki.openssl.org/index.php/Enc) is a really good list of all the flags for real OpenSSL.
 * [This](https://csrc.nist.gov/csrc/media/publications/fips/180/2/archive/2002-08-01/documents/fips180-2.pdf) is good documentation for SHA.
 * [This](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm) is the best DES resource I could find, but it's very old, and 0-indexed inconsistently.
+* [This](https://academic.csuohio.edu/yuc/security/Chapter_06_Data_Encription_Standard.pdf) is more DES documentation.
 * Wikipedia:
 	* Cryptographic hashs
 		* [MD5](https://en.wikipedia.org/wiki/MD5)
