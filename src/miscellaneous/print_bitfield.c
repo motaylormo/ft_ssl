@@ -21,13 +21,14 @@ void	print_hex(int fd, void *ptr, int bytes)
 	{
 		ft_dprintf(fd, "%.2x", field[i]);
 	}
+	ft_dprintf(fd, "\n");
 }
 
 void	print_base64(int fd, void *ptr, int bytes)
 {
 	uint8_t	*field = ptr;
 	uint8_t	plain3[3];
-	char	encyp4[4];
+	uint8_t	encyp4[4];
 
 	for (int i = 0; i < bytes; i += 3)
 	{
@@ -36,4 +37,5 @@ void	print_base64(int fd, void *ptr, int bytes)
 		base64_encode_3bytes(encyp4, plain3, bytes - i);
 		write(fd, encyp4, 4);
 	}
+	ft_dprintf(fd, "\n");
 }

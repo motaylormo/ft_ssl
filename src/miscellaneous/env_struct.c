@@ -22,8 +22,25 @@ t_env	fresh_env(void)
 	return (env);
 }
 
+
+static void	print_env(t_env env)
+{
+	ft_printf("\n");
+	ft_printf("           mode = %d\n", env.mode);
+	ft_printf("          flags = %.4b\n", env.flags);
+	ft_printf("       input_fd = %d\n", env.input_fd);
+	ft_printf("      input_ptr = %s\n", env.input_ptr);
+	ft_printf("input_ptr_bytes = %d\n", env.input_ptr_bytes);
+	ft_printf("      output_fd = %d\n", env.output_fd);
+	ft_printf("       password = %s\n", env.password);
+	ft_printf("           salt = %.16lx\n", env.salt);
+	ft_printf("            key = %.16lx\n", env.key);
+	ft_printf("             iv = %.16lx\n", env.iv);	
+}
+
 void	free_env(t_env env)
 {
+	print_env(env);
 	if (env.input_ptr)
 		free(env.input_ptr);
 	if (env.password)

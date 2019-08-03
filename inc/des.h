@@ -13,10 +13,16 @@
 #ifndef DES_H
 # define DES_H
 
+/*
+**	<pwd.h>	for getpass
+*/
 # include "ft_ssl.h"
+# include <pwd.h>
 
 # define BLOCK_SIZE 64
 # define ROUNDS 16
+
+# define BLOCK_BYTES (BLOCK_SIZE / 8)
 
 /*
 **	des_util.c
@@ -40,6 +46,6 @@ void		key_schedule(uint64_t key, uint64_t subkey[], int mode);
 /*
 **	des_inner.c
 */
-uint64_t	des_inner(uint64_t block, uint64_t *subkey);
+uint64_t	des_cipher(uint64_t block, uint64_t *subkey);
 
 #endif

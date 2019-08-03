@@ -16,32 +16,16 @@
 # include "ft_ssl.h"
 
 /*
-**	ROTL	rotate left (circular left shift)
-**	ROTR	rotate right (circular right shift)
+**	ROTL	bitwise rotation left
+**	ROTR	bitwise rotation right
 */
-# define ROTL(x, n)	(((x) << (n)) | ((x) >> ((sizeof(x) * 8) - (n))))
-# define ROTR(x, n)	(((x) >> (n)) | ((x) << ((sizeof(x) * 8) - (n))))
+# define ROTL(x,n)	(((x) << (n)) | ((x) >> ((sizeof(x) * 8) - (n))))
+# define ROTR(x,n)	(((x) >> (n)) | ((x) << ((sizeof(x) * 8) - (n))))
 
 /*
-**	Majority function:
-**			Maj(x, y, z) = (x ∧ y) ⊕ (x ∧ z) ⊕ (y ∧ z)
-**		For each bit index, that result bit according to
-**		what bit is the the majority amongst 𝑥 𝑦 𝑧 at this index.
-**
-**	Choose function:
-**			Ch(x, y, z) = (x ∧ y) ⊕ (¬x ∧ z)
-**		For each bit index, that result bit is according to
-**		the bit from 𝑦 or 𝑧, depending on the bit from 𝑥.
-**			{ x = 1,	y }
-**			{ x = 0,	z }
-**
-**	Parity function:
-**			Par(x, y, z) = x ⊕ y ⊕ z
-**		For each bit index, that result bit is according to
-**		the parity of 𝑥 𝑦 𝑧 at this index.
-**		Parity is whether it contains an odd or even number of 1-bits.
-**			1	odd
-**			0	even
+**	MAJ		majority function
+**	CH		choose function
+**	PAR		parity function
 */
 # define MAJ(x,y,z)	(((x) & (y)) ^ ((x) & (z)) ^ ((y) & (z)))
 # define CH(x,y,z)	(((x) & (y)) ^ (~(x) & (z)))

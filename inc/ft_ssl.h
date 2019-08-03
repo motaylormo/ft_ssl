@@ -44,7 +44,7 @@ enum	e_flags{
 	flag_salt = 1 << 1,
 	flag_key = 1 << 2,
 	flag_iv = 1 << 3,
-	flag_b64 =  1 << 4
+	flag_b64 = 1 << 4
 };
 
 enum	e_error_codes{
@@ -56,10 +56,14 @@ enum	e_error_codes{
 
 # define USAGE "usage: ft_ssl command [command opts] [command av]"
 
+
+void	handle_error(int errorcode, char *str);
+void	print_base64(int fd, void *ptr, int bytes);
+void	print_hex(int fd, void *ptr, int bytes);
+
 /*
 **	ssl shell
 */
-void		handle_error(int errorcode, char *str);
 t_env		fresh_env(void);
 void		free_env(t_env env);
 
@@ -83,16 +87,23 @@ void	*ft_sha384(t_env env);
 /*
 **	des/
 */
-t_env		ft_pbkdf(t_env env);
+void		ft_pbkdf(t_env *env);
 uint64_t	ft_des_ecb(t_env *env, uint64_t block, uint64_t *subkey);
 uint64_t	ft_des_cbc(t_env *env, uint64_t block, uint64_t *subkey);
-void		ft_des(t_env env, uint64_t (*f)(t_env*, uint64_t, uint64_t*));
+
+void		ft_des_encode(t_env *env, uint64_t (*f)(t_env*, uint64_t, uint64_t*));
+void		ft_des_decode(t_env *env, uint64_t (*f)(t_env*, uint64_t, uint64_t*));
 
 /*
 **	base64/
 */
-//void		ft_base64(t_env env);
-void	base64_encode_3bytes(char *dst, uint8_t *src, int src_len);
-void	base64_decode_3bytes(char *dst, uint8_t *src);
+void	base64_encode_3bytes(uint8_t dst[4], uint8_t src[3], int bytes);
+void	base64_decode_3bytes(uint8_t dst[3], uint8_t src[4]);
+
+int		write_to_base64(int fd, void *block, int block_bytes);
+int		read_from_base64(int fd, void *block, int block_bytes);
+
+//ssize_t		write_to_base64(int fd, const void *block, size_t block_bytes);
+//ssize_t		read_from_base64(int fd, void *block, size_t block_bytes);
 
 #endif

@@ -14,7 +14,8 @@
 
 /*
 **	Real OpenSSL has 4 columns, each 18 chars wide.
-**	In OpenSSL the columns ARE fixed, unlike in ls.
+**	This remains constant, regardless of the window's width
+**		(it does not resize to fit)
 */
 #define COLS 4
 #define COL_WIDTH 18

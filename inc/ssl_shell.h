@@ -25,8 +25,4 @@ void	parse_mode_flags(t_env *env, int flag, char *arg);
 void	parse_des_flags(t_env *env, int flag, char *arg);
 void	parse_hash_flags(t_env *env, int flag, char *arg);
 
-void	print_hex(int fd, void *ptr, int bytes);
-void	print_base64(int fd, void *ptr, int bytes);
-
-
 #endif

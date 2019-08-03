@@ -31,12 +31,12 @@ static uint64_t	random_salt(void)
 **	Concatenate password + salt, then MD5 hash it
 */
 
-static uint32_t	*hash_salted_pass(char *password, uint64_t salt)
+static void	*hash_salted_pass(char *password, uint64_t salt)
 {
-	int			pass_len;
-	char		*salted_pass;
-	t_env		md5_env;
-	uint32_t	*md5_hash;
+	int		pass_len;
+	char	*salted_pass;
+	t_env	md5_env;
+	void	*md5_hash;
 
 	pass_len = ft_strlen(password);
 	salted_pass = ft_memalloc(pass_len + (64 / 8) + 1);
@@ -47,8 +47,8 @@ static uint32_t	*hash_salted_pass(char *password, uint64_t salt)
 	md5_env.input_ptr = salted_pass;
 	md5_env.input_ptr_bytes = pass_len + (64 / 8);
 	md5_hash = ft_md5(md5_env);
+	free(salted_pass);
 	endianflip_field_32bit(md5_hash, 128);
-	free_env(md5_env);
 	return (md5_hash);
 }
 
@@ -56,26 +56,35 @@ static uint32_t	*hash_salted_pass(char *password, uint64_t salt)
 **	Password-Based Key Derivation Function
 */
 
-t_env			ft_pbkdf(t_env env)
+void			ft_pbkdf(t_env *env)
 {
 	uint32_t	*hash;
 
-	if (!(env.flags & flag_salt))
-		env.salt = random_salt();
-	if (env.password)
+	if (!(env->flags & flag_pass))
 	{
-		hash = hash_salted_pass(env.password, env.salt);
-		if (!(env.flags & flag_key))
+		env->password = getpass((env->mode == 0) ?
+			"enter des encryption password: " :
+			"enter des decryption password: ");
+		env->flags |= flag_pass;
+	}
+	if (!(env->flags & flag_salt) && env->mode == 0)
+	{
+		env->salt = random_salt();
+		env->flags |= flag_salt;
+	}
+	if (env->password)
+	{
+		hash = hash_salted_pass(env->password, env->salt);
+		if (!(env->flags & flag_key))
 		{
-			env.key = rejoin_halves(hash[0], hash[1], 32);
-			env.flags |= flag_key;
+			env->key = rejoin_halves(hash[0], hash[1], 32);
+			env->flags |= flag_key;
 		}
-		if (!(env.flags & flag_iv))
+		if (!(env->flags & flag_iv))
 		{
-			env.iv = rejoin_halves(hash[2], hash[3], 32);
-			env.flags |= flag_iv;
+			env->iv = rejoin_halves(hash[2], hash[3], 32);
+			env->flags |= flag_iv;
 		}
 		free(hash);
 	}
-	return (env);
 }
