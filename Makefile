@@ -16,14 +16,14 @@ FLAGS = -Wall -Wextra -Werror -g
 LIB = -I libft/ ./libft/libft.a
 INC = -I ./inc
 
-MISC = error.c \
-		endian.c \
-		env_struct.c
+MISC = endian.c \
+		error.c \
+		env_struct.c \
+		print_bitfield.c
 
 SSL_SH = main.c \
 		commands.c \
-		flags.c \
-		print_bitfield.c
+		flags.c
 
 HASH = block.c \
 		md5.c \
@@ -31,13 +31,15 @@ HASH = block.c \
 		sha256_sha224.c \
 		sha512_sha384.c
 
-DES = des_inner.c \
+DES = des_cipher.c \
 		modes_of_operation.c \
+		_encrypt.c _decrypt.c \
 		pbkdf.c \
 		key_schedule.c \
 		des_util.c
 
-BASE64 = base64.c
+BASE64 = base64.c \
+		write_read.c \
 
 FILES = $(addprefix miscellaneous/, $(MISC)) \
 		$(addprefix ssl_shell/, $(SSL_SH)) \
