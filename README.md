@@ -70,4 +70,5 @@ So I created test cases: They're meticulous traces of what the values should be 
 		* [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard)
 		* [DES tables](https://en.wikipedia.org/wiki/DES_supplementary_material)
 		* [Modes of operation](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+		* [Salt](https://en.wikipedia.org/wiki/Salt_(cryptography))
 	* [Base64](https://en.wikipedia.org/wiki/Base64)
