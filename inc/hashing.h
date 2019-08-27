@@ -33,9 +33,9 @@
 
 typedef struct	s_blockpad
 {
-	int			block_size;
-	int			endian;
-	int			len_size;
+	int	block_size;
+	int	endian;
+	int	len_size;
 }				t_blockpad;
 
 enum	e_abc{
@@ -57,6 +57,7 @@ enum	e_endian{
 /*
 **	block.c
 */
-void	padded_block(uint8_t *block, t_env env, int *endflag, t_blockpad bp);
+void			padded_block(uint8_t *block, t_env env, int *endflag,
+								t_blockpad bp);
 
 #endif

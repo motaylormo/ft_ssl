@@ -13,21 +13,6 @@
 #include "des.h"
 
 /*
-**	Generates random salt, by reading 64-bits from /dev/random
-*/
-
-static uint64_t	random_salt(void)
-{
-	uint64_t	salt;
-	int			fd;
-
-	fd = open("/dev/random", O_RDONLY);
-	read(fd, &salt, 64 / 8);
-	close(fd);
-	return (salt);
-}
-
-/*
 **	Concatenate password + salt, then MD5 hash it
 */
 
@@ -67,11 +52,7 @@ void			ft_pbkdf(t_env *env)
 			"enter des decryption password: ");
 		env->flags |= flag_pass;
 	}
-	if (!(env->flags & flag_salt) && env->mode == 0)
-	{
-		env->salt = random_salt();
-		env->flags |= flag_salt;
-	}
+	handle_salt(env);
 	if (env->password)
 	{
 		hash = hash_salted_pass(env->password, env->salt);

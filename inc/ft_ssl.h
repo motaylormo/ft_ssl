@@ -56,54 +56,48 @@ enum	e_error_codes{
 
 # define USAGE "usage: ft_ssl command [command opts] [command av]"
 
-
-void	handle_error(int errorcode, char *str);
-void	print_base64(int fd, void *ptr, int bytes);
-void	print_hex(int fd, void *ptr, int bytes);
-
 /*
 **	ssl shell
 */
-t_env		fresh_env(void);
-void		free_env(t_env env);
+t_env			fresh_env(void);
+void			free_env(t_env env);
 
-//	endian.c
-uint32_t	endianflip_32bit(uint32_t val);
-uint64_t	endianflip_64bit(uint64_t val);
-void		endianflip_field_32bit(uint32_t *field, int size);
-void		endianflip_field_64bit(uint64_t *field, int size);
+/*
+**	misc
+*/
 
+void			handle_error(int errorcode, char *str);
+uint32_t		endianflip_32bit(uint32_t val);
+uint64_t		endianflip_64bit(uint64_t val);
+void			endianflip_field_32bit(uint32_t *field, int size);
+void			endianflip_field_64bit(uint64_t *field, int size);
 
 /*
 **	hashing/
 */
-void	*ft_md5(t_env env);
-void	*ft_sha1(t_env env);
-void	*ft_sha256(t_env env);
-void	*ft_sha224(t_env env);
-void	*ft_sha512(t_env env);
-void	*ft_sha384(t_env env);
+void			*ft_md5(t_env env);
+void			*ft_sha1(t_env env);
+void			*ft_sha256(t_env env);
+void			*ft_sha224(t_env env);
+void			*ft_sha512(t_env env);
+void			*ft_sha384(t_env env);
+void			print_checksum(int flags, int fd, uint8_t *hash, int bytes);
 
 /*
 **	des/
 */
-void		ft_pbkdf(t_env *env);
-uint64_t	ft_des_ecb(t_env *env, uint64_t block, uint64_t *subkey);
-uint64_t	ft_des_cbc(t_env *env, uint64_t block, uint64_t *subkey);
-
-void		ft_des_encode(t_env *env, uint64_t (*f)(t_env*, uint64_t, uint64_t*));
-void		ft_des_decode(t_env *env, uint64_t (*f)(t_env*, uint64_t, uint64_t*));
+void			ft_pbkdf(t_env *env);
+uint64_t		ft_des_ecb(t_env *env, uint64_t block, uint64_t *subkey);
+uint64_t		ft_des_cbc(t_env *env, uint64_t block, uint64_t *subkey);
+void			ft_des_encrypt(t_env *env,
+					uint64_t (*f)(t_env*, uint64_t, uint64_t*));
+void			ft_des_decrypt(t_env *env,
+					uint64_t (*f)(t_env*, uint64_t, uint64_t*));
 
 /*
 **	base64/
 */
-void	base64_encode_3bytes(uint8_t dst[4], uint8_t src[3], int bytes);
-void	base64_decode_3bytes(uint8_t dst[3], uint8_t src[4]);
-
-int		write_to_base64(int fd, void *block, int block_bytes);
-int		read_from_base64(int fd, void *block, int block_bytes);
-
-//ssize_t		write_to_base64(int fd, const void *block, size_t block_bytes);
-//ssize_t		read_from_base64(int fd, void *block, size_t block_bytes);
+int				write_to_base64(int fd, void *block, int block_bytes);
+int				read_from_base64(int fd, void *block, int block_bytes);
 
 #endif

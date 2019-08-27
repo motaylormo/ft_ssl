@@ -16,8 +16,7 @@
 typedef struct	s_hash_cmd
 {
 	char		*str;
-	void*		(*func)(t_env);
-	int			chuck;
+	void		*(*func)(t_env);
 	int			bits;
 }				t_hash_cmd;
 
@@ -32,4 +31,5 @@ typedef struct	s_func_flags
 	void		(*func)(t_env*, int, char*);
 	char		*flags;
 }				t_func_flags;
+
 #endif

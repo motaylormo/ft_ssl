@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bitfield.c                                   :+:      :+:    :+:   */
+/*   print_checksum.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,30 +12,20 @@
 
 #include "ssl_shell.h"
 
-void	print_hex(int fd, void *ptr, int bytes)
+static void	print_hex(int fd, uint8_t *hash, int bytes)
 {
-	uint8_t	*field;
-
-	field = ptr;
 	for (int i = 0; i < bytes; i++)
-	{
-		ft_dprintf(fd, "%.2x", field[i]);
-	}
+		ft_dprintf(fd, "%.2x", hash[i]);
 	ft_dprintf(fd, "\n");
 }
 
-void	print_base64(int fd, void *ptr, int bytes)
+void	print_checksum(int flags, int fd, uint8_t *hash, int bytes)
 {
-	uint8_t	*field = ptr;
-	uint8_t	plain3[3];
-	uint8_t	encyp4[4];
-
-	for (int i = 0; i < bytes; i += 3)
+	if (flags & flag_b64)
 	{
-		ft_bzero(plain3, 3);
-		ft_memcpy(plain3, field + i, (bytes < 3) ? bytes : 3);
-		base64_encode_3bytes(encyp4, plain3, bytes - i);
-		write(fd, encyp4, 4);
+		write_to_base64(fd, hash, bytes);
+		write_to_base64(fd, hash, 0);
 	}
-	ft_dprintf(fd, "\n");
+	else
+		print_hex(fd, hash, bytes);
 }

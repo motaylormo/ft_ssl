@@ -15,6 +15,8 @@
 
 # include "ft_ssl.h"
 
+# define BUFSIZE 15
+
 int		run_hash(int ac, char **av);
 int		run_des(int ac, char **av);
 int		run_base64(int ac, char **av);

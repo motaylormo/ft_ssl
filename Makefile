@@ -18,34 +18,37 @@ INC = -I ./inc
 
 MISC = endian.c \
 		error.c \
-		env_struct.c \
-		print_bitfield.c
+		env_struct.c
 
 SSL_SH = main.c \
 		commands.c \
 		flags.c
 
 HASH = block.c \
-		md5.c \
-		sha1.c \
-		sha256_sha224.c \
-		sha512_sha384.c
+		print_checksum.c \
+			algorithms/md5.c \
+			algorithms/sha1.c \
+			algorithms/sha256_sha224.c \
+			algorithms/sha512_sha384.c
 
-DES = des_cipher.c \
-		modes_of_operation.c \
-		_encrypt.c _decrypt.c \
-		pbkdf.c \
-		key_schedule.c \
-		des_util.c
+ENCRYPT = modes_of_operation.c \
+			des/cipher.c \
+			des/key_schedule.c \
+			des/en_de_crypt.c \
+			pbkdf/pbkdf.c \
+			pbkdf/salt.c \
+			util/bitfield_util.c \
+			util/read_write.c \
 
-BASE64 = base64.c \
-		write_read.c \
+B64 = base64.c \
+		read.c \
+		write.c
 
 FILES = $(addprefix miscellaneous/, $(MISC)) \
 		$(addprefix ssl_shell/, $(SSL_SH)) \
-		$(addprefix hashing/, $(HASH)) \
-		$(addprefix des/, $(DES)) \
-		$(addprefix base64/, $(BASE64))
+		$(addprefix hash/, $(HASH)) \
+		$(addprefix encrypt/, $(ENCRYPT)) \
+		$(addprefix base64/, $(B64))
 
 SRC = $(addprefix ./src/, $(FILES))
 

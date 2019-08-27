@@ -22,7 +22,7 @@ t_env	fresh_env(void)
 	return (env);
 }
 
-
+/*
 static void	print_env(t_env env)
 {
 	ft_printf("\n");
@@ -37,10 +37,11 @@ static void	print_env(t_env env)
 	ft_printf("            key = %.16lx\n", env.key);
 	ft_printf("             iv = %.16lx\n", env.iv);	
 }
+*/
 
 void	free_env(t_env env)
 {
-	print_env(env);
+//	print_env(env);
 	if (env.input_ptr)
 		free(env.input_ptr);
 	if (env.password)

@@ -147,7 +147,7 @@ static uint32_t	feistel(uint32_t half_block, uint64_t subkey)
 	return (x >> 32);
 }
 
-uint64_t	des_cipher(uint64_t block, uint64_t *subkey)
+uint64_t	cipher(uint64_t block, uint64_t *subkey)
 {
 	uint32_t	left;
 	uint32_t	right;

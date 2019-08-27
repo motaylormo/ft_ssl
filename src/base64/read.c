@@ -1,48 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_read.c                                       :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtaylor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 13:53:15 by mtaylor           #+#    #+#             */
-/*   Updated: 2019/07/23 13:53:16 by mtaylor          ###   ########.fr       */
+/*   Created: 2019/08/16 10:11:38 by mtaylor           #+#    #+#             */
+/*   Updated: 2019/08/16 10:11:39 by mtaylor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base64.h"
-
-#define BUFSIZE 100
-#define SMALLER(a, b)	((a < b) ? a : b)
-
-int		write_to_base64(int fd, void *block, int block_bytes)
-{
-	static uint8_t	buf[BUFSIZE];
-	static int		buf_bytes = 0;
-	int				inc;
-
-	if (block_bytes == 0)
-	{
-		print_base64(fd, buf, buf_bytes);
-		buf_bytes = 0;
-		return (0);
-	}
-	while (block_bytes > 0)
-	{
-		inc = SMALLER(block_bytes, BYTES_PER_LINE);
-		ft_memcpy(buf + buf_bytes, block, inc);
-		buf_bytes += inc;
-		block += inc;
-		block_bytes -= inc;
-		if (buf_bytes >= BYTES_PER_LINE)
-		{
-			print_base64(fd, buf, BYTES_PER_LINE);
-			buf_bytes -= BYTES_PER_LINE;
-			ft_memmove(buf, buf + BYTES_PER_LINE, buf_bytes);
-		}
-	}
-	return (1);
-}
 
 static int	is_b64_char(char c)
 {
@@ -76,7 +44,7 @@ static int	read_block(int fd, uint8_t *encoded4)
 int		read_from_base64(int fd, void *block, int block_size)
 {
 	static uint8_t	buf[BUFSIZE];
-	static int		buf_bytes = 0;
+	static int	buf_bytes = 0;
 	uint8_t			encoded4[4];
 	int				inc;
 

@@ -17,13 +17,8 @@
 */
 uint64_t	ft_des_ecb(t_env *env, uint64_t block, uint64_t *subkey)
 {
-	uint64_t	crypted_block;
-
 	(void)env;
-	block = endianflip_64bit(block);
-	crypted_block = des_cipher(block, subkey);
-	crypted_block = endianflip_64bit(crypted_block);
-	return (crypted_block);
+	return (cipher(block, subkey));
 }
 
 /*
@@ -31,17 +26,15 @@ uint64_t	ft_des_ecb(t_env *env, uint64_t block, uint64_t *subkey)
 **		Encryption: XOR with iv ~before~ encryption
 **		Decryption: XOR with iv ~after~ decryption
 */
-uint64_t	ft_des_cbc(t_env *env, uint64_t block, uint64_t *subkey)
+uint64_t	ft_des_cbc(t_env *env, uint64_t pre_block, uint64_t *subkey)
 {
-	uint64_t	crypted_block;
+	uint64_t	post_block;
 
-	block = endianflip_64bit(block);
 	if (env->mode == 0)
-		block ^= env->iv;
-	crypted_block = des_cipher(block, subkey);
+		pre_block ^= env->iv;
+	post_block = cipher(pre_block, subkey);
 	if (env->mode == 1)
-		crypted_block ^= env->iv;
-	env->iv = (env->mode == 1) ? block : crypted_block;
-	crypted_block = endianflip_64bit(crypted_block);
-	return (crypted_block);
+		post_block ^= env->iv;
+	env->iv = (env->mode == 1) ? pre_block : post_block;
+	return (post_block);
 }

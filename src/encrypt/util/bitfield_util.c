@@ -50,9 +50,7 @@ static uint64_t	mask_bits(int n)
 
 	mask = 0;
 	for (int i = 0; i < n; i++)
-	{
 		mask = (mask << 1) + 1;
-	}
 	return (mask);
 }
 
