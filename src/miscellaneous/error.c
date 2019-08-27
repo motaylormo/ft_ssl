@@ -35,7 +35,7 @@ const char*	g_cipher_flags[] = {
 	"-d\tDecrypt mode [default: encrypt]",
 	"-i\tInput file to read from [default: stdin]",
 	"-o\tOutput file to write to [default: stdout]",
-	"-a\tdecode/encode the input/output in base64",
+	"-a\tDecode/encode the input/output in base64",
 	"-p\tPassword to use (string)",
 	"-s\tSalt to use (hexidecimal string)",
 	"-k\tKey to use (hexidecimal string)",
@@ -53,11 +53,11 @@ const char*	g_cipher_commands[] = {
 
 const char*	g_message_digest_flags[] = {
 	"-s\tPrint the sum of the given string",
+	"-a\tPrint hash in base64 rather than hex",
 	"-i\tInput file to read from [default: stdin]",
 	"-o\tOutput file to write to [default: stdout]",
 	(NULL)
 };
-
 
 /*
 **	Prints string in a null-terminated list in indented columns.
