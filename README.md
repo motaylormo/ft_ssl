@@ -7,8 +7,8 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines. Meticu
 
 | Cryptographic hash | DES                | Base64             |
 | ------------------ | ------------------ | ------------------ |
-| [documentation](./documentation/DES.pdf) | [documentation](./documentation/hashing.pdf)
-| [test cases](./test_cases/des)           | [test cases](./test_cases/hashing)
+| [documentation](./documentation/hashing.pdf) | [documentation](./documentation/DES.pdf)
+| [test cases](./test_cases/hashing)           | [test cases](./test_cases/des)
 | `md5`<br>`sha1`<br>`sha256`<br>`sha224`<br>`sha512`<br>`sha384` | `des-ecb`<br>`des-cbc`<br>`des` | `base64` |
 
 ## Flags
