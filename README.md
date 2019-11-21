@@ -33,11 +33,11 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines. Meticu
 	<tr>
 		<th>DES</th>
 		<td>
-			<code>-a</code>, decode/encode the input/output in base64,<br>depending on encrypt mode<br>
 			<code>-p</code>, password in ascii<br>
 			<code>-s</code>, salt in hex<br>
 			<code>-k</code>, key in hex<br>
-			<code>-v</code>, initialization vector in hex
+			<code>-v</code>, initialization vector in hex<br>
+			<code>-a</code>, decode/encode the input/output in base64,<br>depending on encrypt mode
 		</td>
 		<td rowspan="2">
 			<code>-d</code>, decrypt mode<br>
