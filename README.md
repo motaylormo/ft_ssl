@@ -16,12 +16,12 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines. Meticu
 * **Default output:** stdout
 * **Default mode:** encrypt
 <table style="vertical-align:center;">
-	<tr align="center">
+	<tr>
 		<td></td>
-		<td colspan="3"><b>Flags</b></td>
+		<th colspan="3">Flags</th>
 	</tr>
 	<tr>
-		<td><b>Hashs</b></td>
+		<th>Hashs</th>
 		<td colspan="2">
 			<code>-s</code>, input is the given string
 		</td>
@@ -31,7 +31,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines. Meticu
 		</td>
 	</tr>
 	<tr>
-		<td><b>DES</b><br></td>
+		<th>DES</th>
 		<td>
 			<code>-a</code>, decode/encode the input/output in base64,<br>depending on encrypt mode<br>
 			<code>-p</code>, password in ascii<br>
@@ -45,7 +45,7 @@ Recoding parts of OpenSSL. In `C`. Made to run on little-endian machines. Meticu
 		</td>
 	</tr>
 		<tr>
-		<td><b>Base64</b></td>
+		<th>Base64</th>
 		<td></td>
 	</tr>
 </table>
